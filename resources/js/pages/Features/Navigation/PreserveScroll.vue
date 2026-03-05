@@ -99,14 +99,14 @@ const items = Array.from({ length: 30 }, (_, i) => ({
                     >. Inertia tracks its scroll position separately.
                 </template>
                 <div
-                    class="h-64 overflow-y-auto rounded-md border"
+                    class="h-64 overflow-y-auto rounded-md border border-black/10 dark:border-white/10"
                     scroll-region
                 >
                     <div class="space-y-2 p-3">
                         <div
                             v-for="item in items"
                             :key="item.id"
-                            class="rounded-md border border-black/10 p-3"
+                            class="rounded-md border border-black/10 dark:border-white/10 p-3"
                         >
                             <div class="flex items-center justify-between">
                                 <span class="text-sm font-medium">{{

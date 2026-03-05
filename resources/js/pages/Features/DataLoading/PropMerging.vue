@@ -107,7 +107,7 @@ const latestContactTimestamp = computed(() => {
                             <div
                                 v-for="notification in notifications"
                                 :key="notification.id"
-                                class="flex items-center justify-between rounded border border-black/10 px-3 py-2"
+                                class="flex items-center justify-between rounded border border-black/10 dark:border-white/10 px-3 py-2 dark:border-white/10"
                             >
                                 <span class="text-sm">{{
                                     notification.message
@@ -163,7 +163,7 @@ const latestContactTimestamp = computed(() => {
                             <div
                                 v-for="activity in activities"
                                 :key="activity.id"
-                                class="flex items-center justify-between rounded border border-black/10 px-3 py-2"
+                                class="flex items-center justify-between rounded border border-black/10 dark:border-white/10 px-3 py-2 dark:border-white/10"
                             >
                                 <span class="text-sm"
                                     >{{ activity.action }}
@@ -216,8 +216,8 @@ const latestContactTimestamp = computed(() => {
                                 class="flex items-center justify-between rounded px-3 py-2"
                                 :class="
                                     contact.updated === latestContactTimestamp
-                                        ? 'border border-blue-200 bg-blue-50/50'
-                                        : 'border border-black/10'
+                                        ? 'border border-blue-200 bg-blue-50/50 dark:border-blue-800 dark:bg-blue-950/50'
+                                        : 'border border-black/10 dark:border-white/10'
                                 "
                             >
                                 <div>

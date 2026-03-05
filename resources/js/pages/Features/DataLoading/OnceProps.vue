@@ -276,11 +276,20 @@ const otherPage = () => (props.page === 1 ? 2 : 1);
                     <div class="space-y-3 text-xs">
                         <div class="rounded-md bg-muted p-3">
                             <pre>
-Inertia::once(fn () => ...);           // Basic
-Inertia::once(fn () => ...)->fresh();  // Always re-evaluate
-Inertia::once(fn () => ...)->until(5);  // Expire after 5s
-Inertia::once(fn () => ...)->as('key');// Custom cache key
-Inertia::shareOnce('key', value);      // Shared once prop</pre
+// Basic once prop
+Inertia::once(fn () => ...);
+
+// Always re-evaluate
+Inertia::once(fn () => ...)->fresh();
+
+// Expire after 5s
+Inertia::once(fn () => ...)->until(5);
+
+// Custom cache key
+Inertia::once(fn () => ...)->as('key');
+
+// Shared once prop
+Inertia::shareOnce('key', value);</pre
                             >
                         </div>
                     </div>

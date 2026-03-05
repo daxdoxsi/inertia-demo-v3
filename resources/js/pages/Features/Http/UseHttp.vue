@@ -13,14 +13,14 @@ import { useHttpApi } from '@/wayfinder/App/Http/Controllers/Feature/HttpControl
 
 const breadcrumbs: BreadcrumbItem[] = [{ title: 'HTTP' }, { title: 'useHttp' }];
 
-const form = useHttp({ name: '' });
+const http = useHttp({ name: '' });
 const response = ref<Record<string, unknown> | null>(null);
 const cancelled = ref(false);
 
 async function submitForm() {
     cancelled.value = false;
     try {
-        await form.post(useHttpApi.url(), {
+        await http.post(useHttpApi.url(), {
             onSuccess: (res: unknown) => {
                 response.value = res as Record<string, unknown>;
             },
@@ -31,7 +31,7 @@ async function submitForm() {
 }
 
 function cancelRequest() {
-    form.cancel();
+    http.cancel();
     cancelled.value = true;
 }
 </script>
@@ -63,24 +63,24 @@ function cancelRequest() {
                             <Label for="name">Your Name</Label>
                             <Input
                                 id="name"
-                                v-model="form.name"
+                                v-model="http.name"
                                 placeholder="Enter your name..."
                             />
                         </div>
                         <div class="flex items-center gap-2">
                             <Button
                                 size="sm"
-                                :disabled="form.processing"
+                                :disabled="http.processing"
                                 @click="submitForm"
                             >
                                 {{
-                                    form.processing
+                                    http.processing
                                         ? 'Sending...'
                                         : 'Send Request'
                                 }}
                             </Button>
                             <Button
-                                v-if="form.processing"
+                                v-if="http.processing"
                                 variant="destructive"
                                 size="sm"
                                 @click="cancelRequest"
@@ -107,47 +107,47 @@ function cancelRequest() {
                             <span>processing</span>
                             <Badge
                                 :variant="
-                                    form.processing ? 'default' : 'secondary'
+                                    http.processing ? 'default' : 'secondary'
                                 "
-                                >{{ form.processing }}</Badge
+                                >{{ http.processing }}</Badge
                             >
                         </div>
                         <div class="flex items-center justify-between">
                             <span>isDirty</span>
                             <Badge
                                 :variant="
-                                    form.isDirty ? 'default' : 'secondary'
+                                    http.isDirty ? 'default' : 'secondary'
                                 "
-                                >{{ form.isDirty }}</Badge
+                                >{{ http.isDirty }}</Badge
                             >
                         </div>
                         <div class="flex items-center justify-between">
                             <span>wasSuccessful</span>
                             <Badge
                                 :variant="
-                                    form.wasSuccessful ? 'default' : 'secondary'
+                                    http.wasSuccessful ? 'default' : 'secondary'
                                 "
-                                >{{ form.wasSuccessful }}</Badge
+                                >{{ http.wasSuccessful }}</Badge
                             >
                         </div>
                         <div class="flex items-center justify-between">
                             <span>recentlySuccessful</span>
                             <Badge
                                 :variant="
-                                    form.recentlySuccessful
+                                    http.recentlySuccessful
                                         ? 'default'
                                         : 'secondary'
                                 "
-                                >{{ form.recentlySuccessful }}</Badge
+                                >{{ http.recentlySuccessful }}</Badge
                             >
                         </div>
                         <div class="flex items-center justify-between">
                             <span>hasErrors</span>
                             <Badge
                                 :variant="
-                                    form.hasErrors ? 'destructive' : 'secondary'
+                                    http.hasErrors ? 'destructive' : 'secondary'
                                 "
-                                >{{ form.hasErrors }}</Badge
+                                >{{ http.hasErrors }}</Badge
                             >
                         </div>
                     </div>
@@ -176,7 +176,7 @@ function cancelRequest() {
                     description="When to use which."
                 >
                     <div class="space-y-3 text-xs">
-                        <div class="rounded-md border border-black/10 p-2">
+                        <div class="rounded-md border border-black/10 dark:border-white/10 p-2">
                             <p class="font-semibold">useForm()</p>
                             <p class="text-muted-foreground">
                                 Triggers Inertia page visits. Server returns
