@@ -77,6 +77,7 @@ const featuresSection: NavSectionType = {
                 {
                     title: 'Optimistic Updates',
                     href: '/features/forms/optimistic-updates',
+                    badge: 'v3',
                 },
                 {
                     title: 'useFormContext',
@@ -129,10 +130,12 @@ const featuresSection: NavSectionType = {
                 {
                     title: 'Instant Visits',
                     href: '/features/navigation/instant-visits',
+                    badge: 'v3',
                 },
                 {
                     title: 'URL Fragments',
                     href: '/features/navigation/url-fragments',
+                    badge: 'v3',
                 },
             ],
         },
@@ -164,6 +167,7 @@ const featuresSection: NavSectionType = {
                 {
                     title: 'Once Props',
                     href: '/features/data-loading/once-props',
+                    badge: 'v3',
                 },
                 {
                     title: 'Optional Props',
@@ -218,6 +222,7 @@ const featuresSection: NavSectionType = {
                 {
                     title: 'Layout Props',
                     href: '/features/layouts/layout-props',
+                    badge: 'v3',
                 },
             ],
         },
@@ -243,10 +248,12 @@ const featuresSection: NavSectionType = {
                 {
                     title: 'HTTP Exceptions',
                     href: '/features/errors/http-exceptions',
+                    badge: 'v3',
                 },
                 {
                     title: 'Network Errors',
                     href: '/features/errors/network-errors',
+                    badge: 'v3',
                 },
             ],
         },
@@ -254,7 +261,7 @@ const featuresSection: NavSectionType = {
             title: 'HTTP',
             icon: Wifi,
             items: [
-                { title: 'useHttp', href: '/features/http/use-http' },
+                { title: 'useHttp', href: '/features/http/use-http', badge: 'v3' },
             ],
         },
     ],
