@@ -98,7 +98,7 @@ function cancelRequest() {
             <FeatureHeader
                 title="Async Requests"
                 docs="the-basics/manual-visits"
-                controller="app/Http/Controllers/Feature/NavigationController.php#L57"
+                controller="app/Http/Controllers/Feature/NavigationController.php#L58"
             >
                 Request queuing behavior. Sync (default) vs async concurrent
                 requests.

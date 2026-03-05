@@ -76,7 +76,7 @@ onUnmounted(() => {
             <FeatureHeader
                 title="HTTP Exceptions"
                 docs="advanced/error-handling"
-                controller="app/Http/Controllers/Feature/NetworkErrorController.php#L11"
+                controller="app/Http/Controllers/Feature/NetworkErrorController.php#L10"
             >
                 Errors handled by
                 <code class="text-xs">handleExceptionsUsing()</code> render as

@@ -19,7 +19,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Nested Layouts"
                 docs="the-basics/layouts#nested-layouts"
-                controller="app/Http/Controllers/Feature/LayoutController.php#L16"
+                controller="app/Http/Controllers/Feature/LayoutController.php#L20"
             >
                 Multi-level layout nesting using
                 <code class="text-xs"

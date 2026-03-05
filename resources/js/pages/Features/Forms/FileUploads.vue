@@ -63,7 +63,7 @@ function formatFileSize(bytes: number): string {
             <FeatureHeader
                 title="File Uploads"
                 docs="the-basics/file-uploads"
-                controller="app/Http/Controllers/Feature/FormController.php#L41"
+                controller="app/Http/Controllers/Feature/FormController.php#L42"
             >
                 File upload handling with progress tracking using useForm.
             </FeatureHeader>

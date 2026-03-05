@@ -34,7 +34,7 @@ const counter = useRemember({ count: 0 }, 'remember-counter');
             <FeatureHeader
                 title="Remember"
                 docs="data-props/remembering-state"
-                controller="app/Http/Controllers/Feature/StateController.php#L12"
+                controller="app/Http/Controllers/Feature/StateController.php#L11"
             >
                 State persistence across browser history navigation with
                 <code class="text-xs">useRemember()</code>.

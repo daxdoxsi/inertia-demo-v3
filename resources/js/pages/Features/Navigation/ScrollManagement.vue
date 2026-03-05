@@ -26,7 +26,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Scroll Management"
                 docs="advanced/scroll-management"
-                controller="app/Http/Controllers/Feature/NavigationController.php#L137"
+                controller="app/Http/Controllers/Feature/NavigationController.php#L135"
             >
                 Inertia resets scroll position to the top on every page visit
                 and restores it during back/forward navigation.

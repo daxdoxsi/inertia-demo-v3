@@ -57,7 +57,7 @@ function visitWithCallbackProps() {
             <FeatureHeader
                 title="Instant Visits"
                 docs="the-basics/manual-visits#client-side-visits"
-                controller="app/Http/Controllers/Feature/NavigationController.php#L74"
+                controller="app/Http/Controllers/Feature/NavigationController.php#L79"
             >
                 Navigate to a component instantly before the server responds
                 using <code class="text-xs">component</code> and

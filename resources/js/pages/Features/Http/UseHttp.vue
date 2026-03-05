@@ -44,7 +44,7 @@ function cancelRequest() {
             <FeatureHeader
                 title="useHttp"
                 docs="the-basics/http-requests"
-                controller="app/Http/Controllers/Feature/HttpController.php#L13"
+                controller="app/Http/Controllers/Feature/HttpController.php#L12"
             >
                 Non-Inertia HTTP requests with
                 <code class="text-xs">useHttp()</code>. Like

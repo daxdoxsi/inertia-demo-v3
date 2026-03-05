@@ -66,7 +66,7 @@ onUnmounted(() => {
             <FeatureHeader
                 title="Flash Data"
                 docs="data-props/flash-data"
-                controller="app/Http/Controllers/Feature/StateController.php#L22"
+                controller="app/Http/Controllers/Feature/StateController.php#L16"
             >
                 One-time messages with
                 <code class="text-xs">Inertia::flash()</code> (server) and

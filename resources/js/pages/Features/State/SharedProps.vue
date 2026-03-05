@@ -20,7 +20,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Shared Props"
                 docs="data-props/shared-data"
-                controller="app/Http/Controllers/Feature/StateController.php#L48"
+                controller="app/Http/Controllers/Feature/StateController.php#L42"
             >
                 Global data shared across all pages via
                 <code class="text-xs">HandleInertiaRequests</code> middleware.

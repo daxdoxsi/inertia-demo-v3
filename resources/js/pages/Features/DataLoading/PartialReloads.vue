@@ -36,7 +36,7 @@ function log(message: string) {
             <FeatureHeader
                 title="Partial Reloads"
                 docs="data-props/partial-reloads"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L36"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L39"
             >
                 Selectively reload specific props using
                 <code class="text-xs">only</code> and

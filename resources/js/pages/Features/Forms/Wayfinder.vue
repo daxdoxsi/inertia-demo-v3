@@ -60,7 +60,7 @@ const precogForm = useForm({
             <FeatureHeader
                 title="Wayfinder"
                 docs="the-basics/routing#generating-urls"
-                controller="app/Http/Controllers/Feature/FormController.php#L107"
+                controller="app/Http/Controllers/Feature/FormController.php#L109"
             >
                 Wayfinder generates type-safe TypeScript functions from your
                 Laravel routes. Each section compares hardcoded URLs with

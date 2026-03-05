@@ -44,7 +44,7 @@ function preserveFragmentVisit() {
             <FeatureHeader
                 title="URL Fragments"
                 docs="the-basics/redirects#preserving-fragments"
-                controller="app/Http/Controllers/Feature/NavigationController.php#L98"
+                controller="app/Http/Controllers/Feature/NavigationController.php#L147"
             >
                 Hash fragment support in redirects. Server-directed fragments
                 and client-side fragment preservation.

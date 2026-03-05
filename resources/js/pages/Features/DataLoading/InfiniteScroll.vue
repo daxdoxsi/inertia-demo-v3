@@ -47,7 +47,7 @@ function applyFilter() {
             <FeatureHeader
                 title="Infinite Scroll"
                 docs="data-props/infinite-scroll"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L53"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L56"
             >
                 Auto, manual, and manual-after modes using
                 <code class="text-xs">Inertia::scroll()</code> with pagination.

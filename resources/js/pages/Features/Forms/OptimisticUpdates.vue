@@ -96,7 +96,7 @@ function toggleFavoriteUseForm(contact: {
             <FeatureHeader
                 title="Optimistic Updates"
                 docs="the-basics/optimistic-updates"
-                controller="app/Http/Controllers/Feature/FormController.php#L79"
+                controller="app/Http/Controllers/Feature/FormController.php#L81"
             >
                 Instant UI feedback with automatic rollback on error. Toggle a
                 favorite and notice how the heart fills immediately while the

@@ -28,7 +28,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Instant Visit Target"
                 docs="the-basics/manual-visits#client-side-visits"
-                controller="app/Http/Controllers/Feature/NavigationController.php#L82"
+                controller="app/Http/Controllers/Feature/NavigationController.php#L87"
             >
                 This page has an artificial server delay. With instant visits,
                 the component renders immediately with placeholder props.

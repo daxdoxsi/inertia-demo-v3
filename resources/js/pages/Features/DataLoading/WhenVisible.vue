@@ -26,7 +26,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="When Visible"
                 docs="data-props/load-when-visible"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L67"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L70"
             >
                 Viewport-triggered data loading using
                 <code class="text-xs">Inertia::optional()</code> +

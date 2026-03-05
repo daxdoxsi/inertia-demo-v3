@@ -36,7 +36,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Optional Props"
                 docs="data-props/partial-reloads#lazy-data-evaluation"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L140"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L162"
             >
                 Compare regular, optional, and deferred prop loading behaviors.
             </FeatureHeader>

@@ -55,7 +55,7 @@ function submitSecondary() {
             <FeatureHeader
                 title="Validation"
                 docs="the-basics/validation"
-                controller="app/Http/Controllers/Feature/FormController.php#L54"
+                controller="app/Http/Controllers/Feature/FormController.php#L56"
             >
                 Error handling patterns. Server-side errors, error bags, and
                 manual error management.

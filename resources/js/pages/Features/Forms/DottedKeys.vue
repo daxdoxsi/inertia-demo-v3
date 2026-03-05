@@ -41,7 +41,7 @@ const parsedData = computed(
             <FeatureHeader
                 title="Dotted Keys"
                 docs="the-basics/forms#dotted-key-notation"
-                controller="app/Http/Controllers/Feature/FormController.php#L93"
+                controller="app/Http/Controllers/Feature/FormController.php#L95"
             >
                 Nested objects, arrays, and escaped dots in form field names.
             </FeatureHeader>

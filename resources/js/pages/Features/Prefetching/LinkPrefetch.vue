@@ -19,7 +19,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Link Prefetch"
                 docs="data-props/prefetching#link-prefetching"
-                controller="app/Http/Controllers/Feature/PrefetchingController.php#L11"
+                controller="app/Http/Controllers/Feature/PrefetchingController.php#L10"
             >
                 Automatic prefetching on mount, hover, and click. Open DevTools
                 Network tab to observe prefetch requests.

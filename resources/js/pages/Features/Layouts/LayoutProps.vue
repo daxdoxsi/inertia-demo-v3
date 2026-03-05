@@ -36,7 +36,7 @@ function reset() {
             <FeatureHeader
                 title="Layout Props"
                 docs="the-basics/layouts#layout-props"
-                controller="app/Http/Controllers/Feature/LayoutController.php#L25"
+                controller="app/Http/Controllers/Feature/LayoutController.php#L30"
             >
                 Pass data from pages to layouts with
                 <code class="text-xs">setLayoutProps()</code> and

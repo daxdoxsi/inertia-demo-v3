@@ -33,7 +33,7 @@ const metaDescription = ref('Document head management with Inertia.js');
             <FeatureHeader
                 title="Head Component"
                 docs="the-basics/title-and-meta#head-component"
-                controller="app/Http/Controllers/Feature/LayoutController.php#L21"
+                controller="app/Http/Controllers/Feature/LayoutController.php#L25"
             >
                 Document <code class="text-xs">&lt;head&gt;</code> management
                 with <code class="text-xs">&lt;Head&gt;</code> for titles, meta

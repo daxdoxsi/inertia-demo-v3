@@ -53,7 +53,7 @@ function togglePolling() {
             <FeatureHeader
                 title="Polling"
                 docs="data-props/polling"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L101"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L104"
             >
                 Periodic data refreshing with
                 <code class="text-xs">usePoll()</code>. Automatically throttled

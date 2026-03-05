@@ -21,7 +21,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Cache Management"
                 docs="data-props/prefetching#cache-invalidation"
-                controller="app/Http/Controllers/Feature/PrefetchingController.php#L26"
+                controller="app/Http/Controllers/Feature/PrefetchingController.php#L25"
             >
                 Tag-based cache system with targeted invalidation.
             </FeatureHeader>

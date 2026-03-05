@@ -48,7 +48,7 @@ const otherPage = () => (props.page === 1 ? 2 : 1);
             <FeatureHeader
                 title="Once Props"
                 docs="data-props/once-props"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L193"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L191"
             >
                 Props that resolve once and are remembered by the client.
                 Navigate between pages to see the once prop persist while

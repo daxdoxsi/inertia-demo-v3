@@ -20,7 +20,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Manual Prefetch"
                 docs="data-props/prefetching#programmatic-prefetching"
-                controller="app/Http/Controllers/Feature/PrefetchingController.php#L21"
+                controller="app/Http/Controllers/Feature/PrefetchingController.php#L20"
             >
                 Programmatic prefetching with
                 <code class="text-xs">router.prefetch()</code>.

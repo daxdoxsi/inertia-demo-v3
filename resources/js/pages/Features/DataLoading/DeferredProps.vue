@@ -30,7 +30,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Deferred Props"
                 docs="data-props/deferred-props"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L13"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L16"
             >
                 Lazy-loaded props with skeleton fallbacks. Expensive data loads
                 after the initial page render.

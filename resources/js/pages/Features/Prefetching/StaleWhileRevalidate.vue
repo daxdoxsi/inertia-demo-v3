@@ -19,7 +19,7 @@ const breadcrumbs: BreadcrumbItem[] = [
             <FeatureHeader
                 title="Stale While Revalidate"
                 docs="data-props/prefetching#stale-while-revalidate"
-                controller="app/Http/Controllers/Feature/PrefetchingController.php#L16"
+                controller="app/Http/Controllers/Feature/PrefetchingController.php#L15"
             >
                 SWR caching strategy. Serve stale data instantly while
                 revalidating in the background.

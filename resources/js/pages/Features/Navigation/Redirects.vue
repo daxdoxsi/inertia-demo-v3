@@ -48,7 +48,7 @@ router.on('success', () => {
             <FeatureHeader
                 title="Redirects"
                 docs="the-basics/redirects"
-                controller="app/Http/Controllers/Feature/NavigationController.php#L113"
+                controller="app/Http/Controllers/Feature/NavigationController.php#L111"
             >
                 Server-side redirect patterns in Inertia. All redirects from
                 PUT, PATCH, and DELETE are automatically converted to 303

@@ -31,7 +31,7 @@ const setDefaultsOnSuccess = ref(true);
             <FeatureHeader
                 title="Form Component"
                 docs="the-basics/forms#form-component"
-                controller="app/Http/Controllers/Feature/FormController.php#L31"
+                controller="app/Http/Controllers/Feature/FormController.php#L32"
             >
                 Template-based &lt;Form&gt; component with slot props. No
                 useForm composable needed.

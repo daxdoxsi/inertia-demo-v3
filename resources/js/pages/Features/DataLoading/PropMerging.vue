@@ -70,7 +70,7 @@ const latestContactTimestamp = computed(() => {
             <FeatureHeader
                 title="Prop Merging"
                 docs="data-props/merging-props"
-                controller="app/Http/Controllers/Feature/DataLoadingController.php#L110"
+                controller="app/Http/Controllers/Feature/DataLoadingController.php#L113"
             >
                 Server-side merge strategies with
                 <code class="text-xs">Inertia::merge()</code>. New items are
