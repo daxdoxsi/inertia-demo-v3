@@ -4,7 +4,7 @@ A comprehensive demo app showcasing every major Inertia.js v3 feature. Built on 
 
 ## Tech Stack
 
-- **Laravel 12** with PHP 8.4
+- **Laravel 12** with PHP 8.5
 - **Inertia.js v3** (`@inertiajs/vue3`)
 - **Vue 3** with Composition API and TypeScript
 - **Tailwind CSS 4** + shadcn-vue
