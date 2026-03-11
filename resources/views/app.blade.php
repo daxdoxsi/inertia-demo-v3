@@ -37,14 +37,14 @@
 
         <meta property="og:type" content="website">
         <meta property="og:title" content="Inertia.js Demo App">
-        <meta property="og:description" content="A kitchen sink demo application showcasing Inertia.js 3.0 features with Laravel, Vue, and the starter kit.">
+        <meta property="og:description" content="A comprehensive Inertia.js 3.0 kitchen sink app built with Laravel and Vue, featuring a mini CRM and feature showcase pages.">
         <meta property="og:image" content="/images/og-image.png">
 
         <meta name="twitter:card" content="summary_large_image">
         <meta name="twitter:site" content="@inertiajs">
         <meta name="twitter:creator" content="@inertiajs">
         <meta name="twitter:title" content="Inertia.js Demo App">
-        <meta name="twitter:description" content="A kitchen sink demo application showcasing Inertia.js 3.0 features with Laravel, Vue, and the starter kit.">
+        <meta name="twitter:description" content="A comprehensive Inertia.js 3.0 kitchen sink app built with Laravel and Vue, featuring a mini CRM and feature showcase pages.">
         <meta name="twitter:image" content="/images/og-image.png">
 
         @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
