@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "28501ef889c4d7b1e9107001bf2feb9d",
+    "content-hash": "c40c0f6c336488b1b07a0ab8a7ee707c",
     "packages": [
         {
             "name": "bacon/bacon-qr-code",
@@ -1223,16 +1223,16 @@
         },
         {
             "name": "inertiajs/inertia-laravel",
-            "version": "v3.0.0-beta2",
+            "version": "v3.0.0-beta3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/inertiajs/inertia-laravel.git",
-                "reference": "0318d14ccd4543a0138bd6eb297a6684979426b7"
+                "reference": "228e227747e2cb7b6825808e40add153342740c5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/0318d14ccd4543a0138bd6eb297a6684979426b7",
-                "reference": "0318d14ccd4543a0138bd6eb297a6684979426b7",
+                "url": "https://api.github.com/repos/inertiajs/inertia-laravel/zipball/228e227747e2cb7b6825808e40add153342740c5",
+                "reference": "228e227747e2cb7b6825808e40add153342740c5",
                 "shasum": ""
             },
             "require": {
@@ -1240,6 +1240,9 @@
                 "laravel/framework": "^11.0|^12.0|^13.0",
                 "php": "^8.2.0",
                 "symfony/console": "^7.0|^8.0"
+            },
+            "conflict": {
+                "laravel/boost": "<2.2.0"
             },
             "require-dev": {
                 "guzzlehttp/guzzle": "^7.2",
@@ -1287,9 +1290,9 @@
             ],
             "support": {
                 "issues": "https://github.com/inertiajs/inertia-laravel/issues",
-                "source": "https://github.com/inertiajs/inertia-laravel/tree/v3.0.0-beta2"
+                "source": "https://github.com/inertiajs/inertia-laravel/tree/v3.0.0-beta3"
             },
-            "time": "2026-03-05T15:12:11+00:00"
+            "time": "2026-03-11T15:44:47+00:00"
         },
         {
             "name": "laravel/fortify",
@@ -2698,16 +2701,16 @@
         },
         {
             "name": "nesbot/carbon",
-            "version": "3.11.1",
+            "version": "3.11.3",
             "source": {
                 "type": "git",
                 "url": "https://github.com/CarbonPHP/carbon.git",
-                "reference": "f438fcc98f92babee98381d399c65336f3a3827f"
+                "reference": "6a7e652845bb018c668220c2a545aded8594fbbf"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/f438fcc98f92babee98381d399c65336f3a3827f",
-                "reference": "f438fcc98f92babee98381d399c65336f3a3827f",
+                "url": "https://api.github.com/repos/CarbonPHP/carbon/zipball/6a7e652845bb018c668220c2a545aded8594fbbf",
+                "reference": "6a7e652845bb018c668220c2a545aded8594fbbf",
                 "shasum": ""
             },
             "require": {
@@ -2799,7 +2802,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2026-01-29T09:26:29+00:00"
+            "time": "2026-03-11T17:23:39+00:00"
         },
         {
             "name": "nette/schema",
