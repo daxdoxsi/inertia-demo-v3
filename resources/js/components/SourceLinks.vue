@@ -11,8 +11,10 @@ const props = defineProps<{
 const page = usePage();
 const componentPath = `resources/js/pages/${page.component}.vue`;
 
+const isLocal = typeof __PROJECT_ROOT__ !== 'undefined';
+
 function url(path: string) {
-    if (typeof __PROJECT_ROOT__ !== 'undefined') {
+    if (isLocal) {
         const [file, line] = path.split('#L');
         return `vscode://file/${__PROJECT_ROOT__}/${file}${line ? `:${line}` : ''}`;
     }
@@ -28,9 +30,9 @@ const links = [
               external: true,
           }
         : null,
-    { label: 'Vue page', href: url(componentPath) },
+    { label: 'Vue page', href: url(componentPath), external: !isLocal },
     props.controller
-        ? { label: 'Controller', href: url(props.controller) }
+        ? { label: 'Controller', href: url(props.controller), external: !isLocal }
         : null,
 ].filter(Boolean) as { label: string; href: string; external?: boolean }[];
 </script>
