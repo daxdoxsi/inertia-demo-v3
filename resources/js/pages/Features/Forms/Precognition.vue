@@ -494,17 +494,16 @@ form.setValidationTimeout(500);
                 <div class="space-y-6">
                     <FeatureCard info-card title="Form Component vs useForm">
                         <div class="space-y-3 text-sm text-muted-foreground">
-                            <CodeBlock
-                                title="Form Component"
-                                :code="`
+                            <CodeBlock title="Form Component">
+                                <textarea>
                                 <Form
-                                  action=&quot;/endpoint&quot;
-                                  method=&quot;post&quot;
-                                  :validation-timeout=&quot;500&quot;
-                                  #default=&quot;{ validate, valid, invalid, ... }&quot;
+                                  action="/endpoint"
+                                  method="post"
+                                  :validation-timeout="500"
+                                  #default="{ validate, valid, invalid, ... }"
                                 >
-                            `"
-                            />
+                                </textarea>
+                            </CodeBlock>
                             <CodeBlock
                                 title="useForm"
                                 code="

@@ -35,16 +35,16 @@ const breadcrumbs: BreadcrumbItem[] = [
                     description="Pass an array of layouts to nest them from outermost to innermost."
                 >
                     <div class="space-y-3">
-                        <CodeBlock
-                            :code="`
-                                import AppLayout from &quot;./AppLayout.vue&quot;
-                                import SectionLayout from &quot;./SectionLayout.vue&quot;
+                        <CodeBlock>
+                            <textarea>
+                                import AppLayout from "./AppLayout.vue"
+                                import SectionLayout from "./SectionLayout.vue"
 
                                 defineOptions({
                                   layout: [AppLayout, SectionLayout],
                                 })
-                            `"
-                        />
+                            </textarea>
+                        </CodeBlock>
                         <p class="text-xs text-muted-foreground">
                             This renders as:
                             <code
@@ -103,23 +103,21 @@ const breadcrumbs: BreadcrumbItem[] = [
                 >
                     <div class="grid gap-4 sm:grid-cols-2">
                         <div>
-                            <CodeBlock
-                                title="Standard pages:"
-                                :code="`
-                                    <AppLayout :breadcrumbs=&quot;...&quot;>
+                            <CodeBlock title="Standard pages:">
+                                <textarea>
+                                    <AppLayout :breadcrumbs="...">
                                       <!-- page content -->
                                     </AppLayout>
-                                `"
-                            />
+                                </textarea>
+                            </CodeBlock>
                             <p class="mt-2 text-xs text-muted-foreground">
                                 Single layout wrapping page content directly in
                                 the template.
                             </p>
                         </div>
                         <div>
-                            <CodeBlock
-                                title="Persistent nested:"
-                                :code="`
+                            <CodeBlock title="Persistent nested:">
+                                <textarea>
                                     defineOptions({
                                       layout: [AppLayout, SectionLayout],
                                     })
@@ -128,8 +126,8 @@ const breadcrumbs: BreadcrumbItem[] = [
                                     <template>
                                       <!-- content only -->
                                     </template>
-                                `"
-                            />
+                                </textarea>
+                            </CodeBlock>
                             <p class="mt-2 text-xs text-muted-foreground">
                                 The template has no layout wrapper. Inertia
                                 manages both layouts externally.

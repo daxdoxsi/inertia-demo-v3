@@ -200,29 +200,26 @@ const parsedData = computed(
 
                     <FeatureCard info-card title="How It Works">
                         <div class="space-y-3 text-sm text-muted-foreground">
-                            <CodeBlock
-                                title="Nested Objects"
-                                :code="`
-                                    <input name=&quot;user.name&quot; />
-                                    <input name=&quot;user.email&quot; />
+                            <CodeBlock title="Nested Objects">
+                                <textarea>
+                                    <input name="user.name" />
+                                    <input name="user.email" />
                                     // Submits: { user: { name: ..., email: ... } }
-                                `"
-                            />
-                            <CodeBlock
-                                title="Array Fields"
-                                :code="`
-                                    <input name=&quot;tags[]&quot; />
-                                    <input name=&quot;tags[]&quot; />
-                                    // Submits: { tags: [&quot;a&quot;, &quot;b&quot;] }
-                                `"
-                            />
-                            <CodeBlock
-                                title="Escaped Dots"
-                                :code="`
-                                    <input name=&quot;config\\.version&quot; />
-                                    // Submits: { &quot;config.version&quot;: &quot;1.0&quot; }
-                                `"
-                            />
+                                </textarea>
+                            </CodeBlock>
+                            <CodeBlock title="Array Fields">
+                                <textarea>
+                                    <input name="tags[]" />
+                                    <input name="tags[]" />
+                                    // Submits: { tags: ["a", "b"] }
+                                </textarea>
+                            </CodeBlock>
+                            <CodeBlock title="Escaped Dots">
+                                <textarea>
+                                    <input name="config\.version" />
+                                    // Submits: { "config.version": "1.0" }
+                                </textarea>
+                            </CodeBlock>
                         </div>
                     </FeatureCard>
                 </div>

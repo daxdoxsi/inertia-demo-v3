@@ -67,12 +67,13 @@ const pageCounter = ref(0);
 
 // No layout wrapper in template"
                 />
-                <CodeBlock
-                    title="Standard (non-persistent):"
-                    :code="`<AppLayout :breadcrumbs=&quot;...&quot;>
+                <CodeBlock title="Standard (non-persistent):">
+                    <textarea>
+<AppLayout :breadcrumbs="...">
   <!-- page content -->
-</AppLayout>`"
-                />
+</AppLayout>
+                    </textarea>
+                </CodeBlock>
                 <p class="text-xs text-muted-foreground">
                     With persistent layouts, Inertia keeps the layout instance
                     mounted and only swaps the page slot content. Layout state,

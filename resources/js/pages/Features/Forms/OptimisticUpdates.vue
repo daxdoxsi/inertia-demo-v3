@@ -330,12 +330,13 @@ function toggleFavoriteUseForm(contact: {
                                         : 'bg-muted'
                                 "
                             >
-                                <CodeBlock
-                                    title="<Form :optimistic>"
-                                    :code="`<Form :optimistic=&quot;(props, data) => ({
+                                <CodeBlock title="<Form :optimistic>">
+                                    <textarea>
+<Form :optimistic="(props, data) => ({
   contacts: /* updated */
-})&quot; />`"
-                                />
+})" />
+                                    </textarea>
+                                </CodeBlock>
                             </div>
                         </div>
                     </FeatureCard>

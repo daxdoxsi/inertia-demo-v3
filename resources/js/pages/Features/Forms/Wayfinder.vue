@@ -131,12 +131,12 @@ const precogForm = useForm({
                         </FeatureCard>
 
                         <FeatureCard title="<Form>">
-                            <CodeBlock
-                                :code="`
-                                    <Form action=&quot;/features/forms/form-component&quot;
-                                          method=&quot;post&quot;>
-                                `"
-                            />
+                            <CodeBlock>
+                                <textarea>
+                                <Form action="/features/forms/form-component"
+                                      method="post">
+                                </textarea>
+                            </CodeBlock>
 
                             <Form
                                 action="/features/forms/form-component"
@@ -176,14 +176,14 @@ const precogForm = useForm({
                         </FeatureCard>
 
                         <FeatureCard title="router / <Link>">
-                            <CodeBlock
-                                :code="`
-                                router.visit(\x27/features/forms/wayfinder\x27)
-                                router.post(\x27/features/forms/optimistic-toggle/1\x27, data)
+                            <CodeBlock>
+                                <textarea>
+                                router.visit('/features/forms/wayfinder')
+                                router.post('/features/forms/optimistic-toggle/1', data)
 
-                                <Link href=&quot;/contacts&quot;>
-                            `"
-                            />
+                                <Link href="/contacts">
+                                </textarea>
+                            </CodeBlock>
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -218,17 +218,16 @@ const precogForm = useForm({
                             Import by controller method. Keeps frontend in sync
                             with your PHP controllers.
                         </p>
-                        <CodeBlock
-                            class="mt-2"
-                            :code="`
-                                import { submitUseForm, toggleFavorite } from \x27@/wayfinder/.../FormController\x27
+                        <CodeBlock class="mt-2">
+                            <textarea>
+                                import { submitUseForm, toggleFavorite } from '@/wayfinder/.../FormController'
 
-                                submitUseForm()        // ${JSON.stringify(submitUseForm())}
-                                submitUseForm.url()    // &quot;${submitUseForm.url()}&quot;
-                                toggleFavorite(1)      // ${JSON.stringify(toggleFavorite(1))}
-                                toggleFavorite.url(1)  // &quot;${toggleFavorite.url(1)}&quot;
-                            `"
-                        />
+                                submitUseForm()        // {"url":"/features/forms/use-form","method":"post"}
+                                submitUseForm.url()    // "/features/forms/use-form"
+                                toggleFavorite(1)      // {"url":"/features/forms/optimistic-toggle/1","method":"post"}
+                                toggleFavorite.url(1)  // "/features/forms/optimistic-toggle/1"
+                            </textarea>
+                        </CodeBlock>
                     </div>
 
                     <div class="grid gap-6 lg:grid-cols-3">
@@ -279,7 +278,7 @@ const precogForm = useForm({
                             description="The :action prop accepts the { url, method } object directly."
                         >
                             <CodeBlock
-                                :code="`<Form :action=&quot;submitFormComponent()&quot;>`"
+                                code='<Form :action="submitFormComponent()">'
                             />
 
                             <Form
@@ -322,8 +321,8 @@ const precogForm = useForm({
                             title="router / <Link>"
                             description="router and Link both accept { url, method } objects."
                         >
-                            <CodeBlock
-                                :code="`
+                            <CodeBlock>
+                                <textarea>
                                 // Extracts method + URL from action
                                 router.visit(wayfinderAction())
                                 router.visit(toggleFavorite(contact))
@@ -332,10 +331,10 @@ const precogForm = useForm({
                                 router.post(toggleFavorite.url(contact))
 
                                 // Link also accepts object or string
-                                <Link :href=&quot;contacts.show(id)&quot;>
-                                <Link :href=&quot;contacts.index.url()&quot;>
-                            `"
-                            />
+                                <Link :href="contacts.show(id)">
+                                <Link :href="contacts.index.url()">
+                                </textarea>
+                            </CodeBlock>
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -391,16 +390,15 @@ const precogForm = useForm({
                             Import by route name. Mirrors your Laravel route
                             names exactly.
                         </p>
-                        <CodeBlock
-                            class="mt-2"
-                            :code="`
-                                import contacts from \x27@/wayfinder/routes/contacts\x27
+                        <CodeBlock class="mt-2">
+                            <textarea>
+                                import contacts from '@/wayfinder/routes/contacts'
 
-                                contacts.index()     // ${JSON.stringify(contacts.index())}
-                                contacts.show(1)     // ${JSON.stringify(contacts.show(1))}
-                                contacts.show.url(1) // &quot;${contacts.show.url(1)}&quot;
-                            `"
-                        />
+                                contacts.index()     // {"url":"/contacts","method":"get"}
+                                contacts.show(1)     // {"url":"/contacts/1","method":"get"}
+                                contacts.show.url(1) // "/contacts/1"
+                            </textarea>
+                        </CodeBlock>
                     </div>
 
                     <div class="grid gap-6 lg:grid-cols-3">
@@ -451,7 +449,7 @@ const precogForm = useForm({
                             description="Pass the named route action directly to :action."
                         >
                             <CodeBlock
-                                :code="`<Form :action=&quot;submitFormComponent()&quot;>`"
+                                code='<Form :action="submitFormComponent()">'
                             />
 
                             <Form
@@ -494,15 +492,15 @@ const precogForm = useForm({
                             title="router / <Link>"
                             description="Use named routes for navigation and programmatic visits."
                         >
-                            <CodeBlock
-                                :code="`
-                                    router.visit(contacts.index())
-                                    router.visit(contacts.destroy(id))
-                                    router.prefetch(contacts.show(id))
+                            <CodeBlock>
+                                <textarea>
+                                router.visit(contacts.index())
+                                router.visit(contacts.destroy(id))
+                                router.prefetch(contacts.show(id))
 
-                                    <Link :href=&quot;contacts.create()&quot;>
-                                `"
-                            />
+                                <Link :href="contacts.create()">
+                                </textarea>
+                            </CodeBlock>
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button variant="outline" size="sm" as-child>
@@ -560,21 +558,20 @@ const precogForm = useForm({
                             >
                             component.
                         </p>
-                        <CodeBlock
-                            class="mt-2"
-                            :code="`
-                                import { submitFormComponent, toggleFavorite } from \x27@/wayfinder/.../FormController\x27
+                        <CodeBlock class="mt-2">
+                            <textarea>
+                                import { submitFormComponent, toggleFavorite } from '@/wayfinder/.../FormController'
 
-                                submitFormComponent.form()  // ${JSON.stringify(submitFormComponent.form())}
-                                toggleFavorite.form(1)      // ${JSON.stringify(toggleFavorite.form(1))}
-                            `"
-                        />
+                                submitFormComponent.form()  // {"action":"/features/forms/form-component","method":"post"}
+                                toggleFavorite.form(1)      // {"action":"/features/forms/optimistic-toggle/1","method":"post"}
+                            </textarea>
+                        </CodeBlock>
                     </div>
 
                     <div class="grid gap-6 lg:grid-cols-2">
                         <FeatureCard title="v-bind with .form()">
                             <CodeBlock
-                                :code="`<Form v-bind=&quot;submitFormComponent.form()&quot;>`"
+                                code='<Form v-bind="submitFormComponent.form()">'
                             />
 
                             <Form
@@ -614,21 +611,21 @@ const precogForm = useForm({
                         </FeatureCard>
 
                         <FeatureCard title="With route parameters">
-                            <CodeBlock
-                                :code="`
+                            <CodeBlock>
+                                <textarea>
                                 // Positional
                                 toggleFavorite.form(1)
-                                // ${JSON.stringify(toggleFavorite.form(1))}
+                                // {"action":"/features/forms/optimistic-toggle/1","method":"post"}
 
                                 // Named
                                 toggleFavorite.form({ contact: 1 })
-                                // ${JSON.stringify(toggleFavorite.form({ contact: 1 }))}
+                                // {"action":"/features/forms/optimistic-toggle/1","method":"post"}
 
                                 // Model object
                                 toggleFavorite.form({ id: 1 })
-                                // ${JSON.stringify(toggleFavorite.form({ id: 1 }))}
-                            `"
-                            />
+                                // {"action":"/features/forms/optimistic-toggle/1","method":"post"}
+                                </textarea>
+                            </CodeBlock>
                         </FeatureCard>
                     </div>
                 </div>
@@ -651,15 +648,15 @@ const precogForm = useForm({
                             title="query"
                             description="Sets query parameters on the generated URL."
                         >
-                            <CodeBlock
-                                :code="`
-                                contacts.index({ query: { search: \x27Jane\x27, page: 2 } })
-                                // ${JSON.stringify(contacts.index({ query: { search: 'Jane', page: 2 } }))}
+                            <CodeBlock>
+                                <textarea>
+                                contacts.index({ query: { search: 'Jane', page: 2 } })
+                                // {"url":"/contacts?search=Jane&page=2","method":"get"}
 
                                 toggleFavorite(1, { query: { notify: true } })
-                                // ${JSON.stringify(toggleFavorite(1, { query: { notify: true } }))}
-                            `"
-                            />
+                                // {"url":"/features/forms/optimistic-toggle/1?notify=true","method":"post"}
+                                </textarea>
+                            </CodeBlock>
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button variant="outline" size="sm" as-child>
@@ -691,17 +688,17 @@ const precogForm = useForm({
                             title="mergeQuery"
                             description="Merges with current URL params. Pass null to remove a param."
                         >
-                            <CodeBlock
-                                :code="`
+                            <CodeBlock>
+                                <textarea>
                                 // Adds page=2 to current URL params
                                 contacts.index({ mergeQuery: { page: 2 } })
-                                // ${JSON.stringify(contacts.index({ mergeQuery: { page: 2 } }))}
+                                // {"url":"/contacts?page=2","method":"get"}
 
                                 // Removes sort from current URL params
                                 contacts.index({ mergeQuery: { sort: null } })
-                                // ${JSON.stringify(contacts.index({ mergeQuery: { sort: null } }))}
-                            `"
-                            />
+                                // {"url":"/contacts","method":"get"}
+                                </textarea>
+                            </CodeBlock>
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -767,20 +764,20 @@ const precogForm = useForm({
                                 >
                                 and pass a Wayfinder route directly.
                             </template>
-                            <CodeBlock
-                                :code="`
+                            <CodeBlock>
+                                <textarea>
                                 const form = useForm({
-                                    username: \x27\x27, email: \x27\x27, ...
+                                    username: '', email: '', ...
                                 }).withPrecognition(storeAccount())
 
                                 // Validate on field change
-                                @change=&quot;form.validate(\x27username\x27)&quot;
+                                @change="form.validate('username')"
 
                                 // Check field status
-                                form.valid(\x27username\x27)
-                                form.invalid(\x27username\x27)
-                            `"
-                            />
+                                form.valid('username')
+                                form.invalid('username')
+                                </textarea>
+                            </CodeBlock>
 
                             <form
                                 class="mt-3 space-y-3"
@@ -926,13 +923,13 @@ const precogForm = useForm({
                                 >
                                 to enable it.
                             </template>
-                            <CodeBlock
-                                :code="`
-                                    <Form v-bind=&quot;storeAccount.form()&quot;
-                                          :validation-timeout=&quot;500&quot;
-                                          #default=&quot;{ validate, valid, invalid }&quot;>
-                                `"
-                            />
+                            <CodeBlock>
+                                <textarea>
+                                <Form v-bind="storeAccount.form()"
+                                      :validation-timeout="500"
+                                      #default="{ validate, valid, invalid }">
+                                </textarea>
+                            </CodeBlock>
 
                             <Form
                                 v-bind="storeAccount.form()"

@@ -185,17 +185,17 @@ function visitWithCallbackProps() {
                         <Button @click="visitWithCallbackProps">
                             Visit with Callback
                         </Button>
-                        <CodeBlock
-                            :code="`
+                        <CodeBlock>
+                            <textarea>
                             router.visit(targetUrl, {
-                              component: &quot;Features/.../Target&quot;,
+                              component: "Features/.../Target",
                               pageProps: (currentProps, sharedProps) => ({
                                 ...sharedProps,
-                                greeting: \`Navigating from source (was: &quot;\${currentProps.message}&quot;)\`,
+                                greeting: `Navigating from source (was: "${currentProps.message}")`,
                               }),
                             })
-                        `"
-                        />
+                            </textarea>
+                        </CodeBlock>
                     </div>
                 </FeatureCard>
 
@@ -214,16 +214,16 @@ function visitWithCallbackProps() {
                         >
                             Link with component
                         </Link>
-                        <CodeBlock
-                            :code="`
+                        <CodeBlock>
+                            <textarea>
                             <Link
-                              :href=&quot;targetUrl&quot;
-                              component=&quot;Features/.../Target&quot;
+                              :href="targetUrl"
+                              component="Features/.../Target"
                             >
                               Link with component
                             </Link>
-                        `"
-                        />
+                            </textarea>
+                        </CodeBlock>
                     </div>
                 </FeatureCard>
 
@@ -243,16 +243,15 @@ function visitWithCallbackProps() {
                             })
                         "
                         />
-                        <CodeBlock
-                            :code="`
+                        <CodeBlock title="<Link>">
+                            <textarea>
                             <Link
-                              href=&quot;/target&quot;
-                              component=&quot;Page/Name&quot;
-                              :page-props=&quot;{ ... }&quot;
+                              href="/target"
+                              component="Page/Name"
+                              :page-props="{ ... }"
                             />
-                        `"
-                            title="<Link>"
-                        />
+                            </textarea>
+                        </CodeBlock>
                         <CodeBlock
                             title="pageProps callback"
                             code="

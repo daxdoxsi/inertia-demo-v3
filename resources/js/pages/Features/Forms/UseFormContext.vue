@@ -207,11 +207,12 @@ const form = useFormContext()
 // form.errors, form.processing, form.isDirty
 // form.validate('field'), form.touch('field')"
                             />
-                            <CodeBlock
-                                title="Returns null outside Form"
-                                :code="`const form = useFormContext()
-// Returns null if not inside a <Form>`"
-                            />
+                            <CodeBlock title="Returns null outside Form">
+                                <textarea>
+const form = useFormContext()
+// Returns null if not inside a <Form>
+                                </textarea>
+                            </CodeBlock>
                         </div>
                     </FeatureCard>
                 </div>

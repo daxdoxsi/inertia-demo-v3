@@ -83,15 +83,14 @@ const metaDescription = ref('Document head management with Inertia.js');
                                 placeholder="Enter a description..."
                             />
                         </div>
-                        <CodeBlock
-                            title="Current meta tags:"
-                            :code="`
-<meta name=&quot;description&quot;
-  content=&quot;${metaDescription}&quot; />
-<meta property=&quot;og:title&quot;
-  content=&quot;${dynamicTitle}&quot; />
-                            `"
-                        />
+                        <CodeBlock title="Current meta tags:">
+                            <textarea>
+<meta name="description"
+  content="${metaDescription}" />
+<meta property="og:title"
+  content="${dynamicTitle}" />
+                            </textarea>
+                        </CodeBlock>
                     </div>
                 </FeatureCard>
 
@@ -102,14 +101,14 @@ const metaDescription = ref('Document head management with Inertia.js');
                         <code class="text-xs">createInertiaApp</code>.
                     </template>
                     <div class="space-y-3">
-                        <CodeBlock
-                            :code="`
+                        <CodeBlock>
+                            <textarea>
                             createInertiaApp({
                               title: (title) =>
-                                title ? \`\${title} - \${appName}\` : appName,
+                                title ? `${title} - ${appName}` : appName,
                             })
-                        `"
-                        />
+                            </textarea>
+                        </CodeBlock>
                         <p class="text-xs text-muted-foreground">
                             This app uses the template above. So
                             <code>&lt;Head title="Home" /&gt;</code> becomes
@@ -126,24 +125,22 @@ const metaDescription = ref('Document head management with Inertia.js');
                         duplicate tags.
                     </template>
                     <div class="space-y-3">
-                        <CodeBlock
-                            title="Layout sets defaults:"
-                            :code="`
+                        <CodeBlock title="Layout sets defaults:">
+                            <textarea>
 <Head>
-  <meta head-key=&quot;description&quot;
-    content=&quot;Default&quot; />
+  <meta head-key="description"
+    content="Default" />
 </Head>
-                            `"
-                        />
-                        <CodeBlock
-                            title="Page overrides:"
-                            :code="`
+                            </textarea>
+                        </CodeBlock>
+                        <CodeBlock title="Page overrides:">
+                            <textarea>
 <Head>
-  <meta head-key=&quot;description&quot;
-    content=&quot;Page-specific&quot; />
+  <meta head-key="description"
+    content="Page-specific" />
 </Head>
-                            `"
-                        />
+                            </textarea>
+                        </CodeBlock>
                         <p class="text-xs text-muted-foreground">
                             Only one tag with the same
                             <code>head-key</code> renders. The page-level tag
@@ -159,21 +156,19 @@ const metaDescription = ref('Document head management with Inertia.js');
                     title="API Reference"
                 >
                     <div class="grid gap-3 sm:grid-cols-3">
-                        <CodeBlock
-                            title="Title shorthand"
-                            :code="`
-<Head title=&quot;My Page&quot; />
-                            `"
-                        />
-                        <CodeBlock
-                            title="Full control"
-                            :code="`
+                        <CodeBlock title="Title shorthand">
+                            <textarea>
+<Head title="My Page" />
+                            </textarea>
+                        </CodeBlock>
+                        <CodeBlock title="Full control">
+                            <textarea>
 <Head>
   <title>My Page</title>
   <meta ... />
 </Head>
-                            `"
-                        />
+                            </textarea>
+                        </CodeBlock>
                         <CodeBlock
                             title="Reset on unmount"
                             code="When a page unmounts,
