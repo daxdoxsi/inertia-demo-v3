@@ -101,7 +101,11 @@ function deleteContact() {
                             Edit
                         </Link>
                     </Button>
-                    <Button variant="outline" class="text-destructive" @click="deleteContact">
+                    <Button
+                        variant="outline"
+                        class="text-destructive"
+                        @click="deleteContact"
+                    >
                         <Trash2 class="size-4" />
                         Delete
                     </Button>
@@ -119,7 +123,9 @@ function deleteContact() {
                             v-if="contact.email"
                             class="flex items-center gap-2 text-sm"
                         >
-                            <Mail class="size-4 shrink-0 text-muted-foreground" />
+                            <Mail
+                                class="size-4 shrink-0 text-muted-foreground"
+                            />
                             <a
                                 :href="`mailto:${contact.email}`"
                                 class="text-primary hover:underline"
@@ -130,7 +136,9 @@ function deleteContact() {
                             v-if="contact.phone"
                             class="flex items-center gap-2 text-sm"
                         >
-                            <Phone class="size-4 shrink-0 text-muted-foreground" />
+                            <Phone
+                                class="size-4 shrink-0 text-muted-foreground"
+                            />
                             <span>{{ contact.phone }}</span>
                         </div>
                         <div

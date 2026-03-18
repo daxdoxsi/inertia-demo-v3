@@ -24,7 +24,9 @@ const breadcrumbs: BreadcrumbItem[] = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
-            <h1 class="text-2xl font-semibold tracking-tight">Create Contact</h1>
+            <h1 class="text-2xl font-semibold tracking-tight">
+                Create Contact
+            </h1>
 
             <Card class="max-w-2xl">
                 <CardHeader>
