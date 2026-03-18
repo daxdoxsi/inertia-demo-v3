@@ -14,7 +14,10 @@ import type { App } from '@/wayfinder/types';
 defineProps<{
     contacts: {
         data: Array<
-            Pick<App.Models.Contact, 'id' | 'first_name' | 'last_name' | 'email' | 'is_favorite'> & {
+            Pick<
+                App.Models.Contact,
+                'id' | 'first_name' | 'last_name' | 'email' | 'is_favorite'
+            > & {
                 organization?: Pick<App.Models.Organization, 'name'> | null;
             }
         >;

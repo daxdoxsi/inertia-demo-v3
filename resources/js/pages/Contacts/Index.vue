@@ -22,7 +22,10 @@ const props = defineProps<
     Omit<Inertia.Pages.Contacts.Index, 'contacts' | 'filters'> & {
         contacts: CursorPaginated<
             App.Models.Contact & {
-                organization?: Pick<App.Models.Organization, 'id' | 'name'> | null;
+                organization?: Pick<
+                    App.Models.Organization,
+                    'id' | 'name'
+                > | null;
             }
         >;
         filters: { search: string; favorite: boolean };

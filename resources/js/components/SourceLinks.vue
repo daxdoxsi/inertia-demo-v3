@@ -32,7 +32,11 @@ const links = [
         : null,
     { label: 'Vue page', href: url(componentPath), external: !isLocal },
     props.controller
-        ? { label: 'Controller', href: url(props.controller), external: !isLocal }
+        ? {
+              label: 'Controller',
+              href: url(props.controller),
+              external: !isLocal,
+          }
         : null,
 ].filter(Boolean) as { label: string; href: string; external?: boolean }[];
 </script>
