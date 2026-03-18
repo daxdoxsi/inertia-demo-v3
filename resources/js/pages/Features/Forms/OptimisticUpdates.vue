@@ -8,9 +8,13 @@ import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
-import type { App, Inertia } from '@/wayfinder/types';
+import type { App } from '@/wayfinder/types';
 
-const props = defineProps<Inertia.Pages.Features.Forms.OptimisticUpdates>();
+interface PageProps {
+    contacts: App.Models.Contact[];
+}
+
+const props = defineProps<PageProps>();
 
 const breadcrumbs: BreadcrumbItem[] = [
     { title: 'Forms' },
@@ -38,14 +42,11 @@ function toggleFavoriteRouter(
     log(`[router.optimistic] Toggling ${contact.first_name}...`);
 
     router
-        .optimistic((currentProps: Record<string, unknown>) => {
-            const contacts = (
-                currentProps.contacts as typeof props.contacts
-            ).map((c: App.Models.Contact) =>
+        .optimistic<PageProps>((currentProps) => ({
+            contacts: currentProps.contacts.map((c) =>
                 c.id === contact.id ? { ...c, is_favorite: !c.is_favorite } : c,
-            );
-            return { contacts };
-        })
+            ),
+        }))
         .post(
             `/features/forms/optimistic-toggle/${contact.id}`,
             {
@@ -73,14 +74,11 @@ function toggleFavoriteUseForm(
     favoriteForm.simulate_error = simulateError.value;
 
     favoriteForm
-        .optimistic((currentProps: Record<string, unknown>) => {
-            const contacts = (
-                currentProps.contacts as typeof props.contacts
-            ).map((c: App.Models.Contact) =>
+        .optimistic<PageProps>((currentProps) => ({
+            contacts: currentProps.contacts.map((c) =>
                 c.id === contact.id ? { ...c, is_favorite: !c.is_favorite } : c,
-            );
-            return { contacts };
-        })
+            ),
+        }))
         .post(`/features/forms/optimistic-toggle/${contact.id}`, {
             preserveScroll: true,
             onSuccess: () => log(`[useForm.optimistic] Server confirmed`),
@@ -239,12 +237,8 @@ function toggleFavoriteUseForm(
                                 :action="`/features/forms/optimistic-toggle/${contact.id}`"
                                 method="post"
                                 :optimistic="
-                                    (
-                                        currentProps: Record<string, unknown>,
-                                    ) => ({
-                                        contacts: (
-                                            currentProps.contacts as typeof props.contacts
-                                        ).map((c: App.Models.Contact) =>
+                                    (currentProps) => ({
+                                        contacts: (currentProps.contacts as App.Models.Contact[]).map((c) =>
                                             c.id === contact.id
                                                 ? {
                                                       ...c,
