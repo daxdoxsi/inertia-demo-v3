@@ -9,16 +9,15 @@ import { Button } from '@/components/ui/button';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 
+import type { App } from '@/wayfinder/types';
+
 defineProps<{
     contacts: {
-        data: Array<{
-            id: number;
-            first_name: string;
-            last_name: string;
-            email: string;
-            organization?: { name: string } | null;
-            is_favorite: boolean;
-        }>;
+        data: Array<
+            Pick<App.Models.Contact, 'id' | 'first_name' | 'last_name' | 'email' | 'is_favorite'> & {
+                organization?: Pick<App.Models.Organization, 'name'> | null;
+            }
+        >;
     };
 }>();
 

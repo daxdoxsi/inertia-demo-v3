@@ -7,7 +7,7 @@ import { Input } from '@/components/ui/input';
 import AppLayout from '@/layouts/AppLayout.vue';
 import { type BreadcrumbItem } from '@/types';
 import organizationRoutes from '@/wayfinder/routes/organizations';
-import type { Inertia } from '@/wayfinder/types';
+import type { App, Inertia } from '@/wayfinder/types';
 
 type Paginated<T> = {
     data: T[];
@@ -16,11 +16,11 @@ type Paginated<T> = {
 
 const props = defineProps<
     Omit<Inertia.Pages.Organizations.Index, 'organizations' | 'filters'> & {
-        organizations: Paginated<{
-            id: number;
-            name: string;
-            contacts_count: number;
-        }>;
+        organizations: Paginated<
+            Pick<App.Models.Organization, 'id' | 'name'> & {
+                contacts_count: number;
+            }
+        >;
         filters: { search: string };
     }
 >();

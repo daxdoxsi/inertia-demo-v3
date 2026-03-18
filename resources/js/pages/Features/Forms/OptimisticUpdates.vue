@@ -29,12 +29,7 @@ function log(message: string) {
 }
 
 // router.optimistic() pattern
-function toggleFavoriteRouter(contact: {
-    id: number;
-    first_name: string;
-    last_name: string;
-    is_favorite: boolean;
-}) {
+function toggleFavoriteRouter(contact: Pick<App.Models.Contact, 'id' | 'first_name' | 'last_name' | 'is_favorite'>) {
     log(`[router.optimistic] Toggling ${contact.first_name}...`);
 
     router
@@ -63,12 +58,7 @@ function toggleFavoriteRouter(contact: {
 // useForm.optimistic() pattern
 const favoriteForm = useForm({ simulate_error: false });
 
-function toggleFavoriteUseForm(contact: {
-    id: number;
-    first_name: string;
-    last_name: string;
-    is_favorite: boolean;
-}) {
+function toggleFavoriteUseForm(contact: Pick<App.Models.Contact, 'id' | 'first_name' | 'last_name' | 'is_favorite'>) {
     log(`[useForm.optimistic] Toggling ${contact.first_name}...`);
     favoriteForm.simulate_error = simulateError.value;
 
