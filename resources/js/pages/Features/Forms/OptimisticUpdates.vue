@@ -238,7 +238,9 @@ function toggleFavoriteUseForm(
                                 method="post"
                                 :optimistic="
                                     (currentProps) => ({
-                                        contacts: (currentProps.contacts as App.Models.Contact[]).map((c) =>
+                                        contacts: (
+                                            currentProps.contacts as App.Models.Contact[]
+                                        ).map((c) =>
                                             c.id === contact.id
                                                 ? {
                                                       ...c,
