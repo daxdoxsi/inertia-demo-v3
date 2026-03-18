@@ -14,21 +14,22 @@ import { useHttpApi } from '@/wayfinder/App/Http/Controllers/Feature/HttpControl
 
 const breadcrumbs: BreadcrumbItem[] = [{ title: 'HTTP' }, { title: 'useHttp' }];
 
-const http = useHttp({ name: '' });
-const response = ref<Record<string, unknown> | null>(null);
+interface ApiResponse {
+    message: string;
+    timestamp: string;
+}
+
+const http = useHttp<{ name: string }, ApiResponse>({ name: '' });
+const response = ref<ApiResponse | null>(null);
 const cancelled = ref(false);
 
-async function submitForm() {
+function submitForm() {
     cancelled.value = false;
-    try {
-        await http.post(useHttpApi.url(), {
-            onSuccess: (res: unknown) => {
-                response.value = res as Record<string, unknown>;
-            },
-        });
-    } catch {
-        // Errors handled via form.errors
-    }
+    http.post(useHttpApi.url(), {
+        onSuccess: (res) => {
+            response.value = res;
+        },
+    });
 }
 
 function cancelRequest() {
