@@ -1,7 +1,7 @@
 <script setup lang="ts">
-import CodeBlock from '@/components/CodeBlock.vue';
 import { Head, router } from '@inertiajs/vue3';
 import { ref, onUnmounted } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';

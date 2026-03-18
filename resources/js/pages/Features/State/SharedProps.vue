@@ -120,7 +120,8 @@ const breadcrumbs: BreadcrumbItem[] = [
                     title="Server Configuration"
                     description="How shared props are defined in the HandleInertiaRequests middleware."
                 >
-                    <CodeBlock code="// app/Http/Middleware/HandleInertiaRequests.php
+                    <CodeBlock
+                        code="// app/Http/Middleware/HandleInertiaRequests.php
 
 public function share(Request $request): array
 {
@@ -133,7 +134,8 @@ public function share(Request $request): array
         'sidebarOpen' => ! $request->hasCookie('sidebar_state')
             || $request->cookie('sidebar_state') === 'true',
     ];
-}" />
+}"
+                    />
                 </FeatureCard>
             </div>
         </div>

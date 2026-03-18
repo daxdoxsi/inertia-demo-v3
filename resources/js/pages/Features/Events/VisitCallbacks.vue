@@ -238,7 +238,8 @@ function triggerWithCancelToken() {
                     class="lg:col-span-2"
                     title="Code Example"
                 >
-                    <CodeBlock code="
+                    <CodeBlock
+                        code="
                         router.post('/endpoint', data, {
                           onBefore: (visit) => confirm('Proceed?'),
                           onStart: (visit) => console.log('Started'),
@@ -246,7 +247,8 @@ function triggerWithCancelToken() {
                           onError: (errors) => console.log(errors),
                           onFinish: (visit) => console.log('Done'),
                         })
-                    " />
+                    "
+                    />
                 </FeatureCard>
             </div>
         </div>

@@ -275,7 +275,8 @@ const otherPage = () => (props.page === 1 ? 2 : 1);
                 <!-- API Reference -->
                 <FeatureCard info-card title="Fluent API">
                     <div class="space-y-3 text-xs">
-                        <CodeBlock code="
+                        <CodeBlock
+                            code="
                             // Basic once prop
                             Inertia::once(fn () => ...);
 
@@ -290,7 +291,8 @@ const otherPage = () => (props.page === 1 ? 2 : 1);
 
                             // Shared once prop
                             Inertia::shareOnce('key', value);
-                        " />
+                        "
+                        />
                     </div>
                 </FeatureCard>
             </div>

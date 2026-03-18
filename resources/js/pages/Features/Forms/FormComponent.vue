@@ -22,7 +22,6 @@ const formRef = ref<any>(null);
 
 const resetOnSuccess = ref(false);
 const setDefaultsOnSuccess = ref(true);
-
 </script>
 
 <template>
@@ -297,18 +296,20 @@ const setDefaultsOnSuccess = ref(true);
                         description="Control the form from outside using a template ref."
                     >
                         <div class="space-y-4">
-                            <CodeBlock :code='`
+                            <CodeBlock
+                                :code="`
                                 import { Form } from \x27@inertiajs/vue3\x27
                                 import { ref } from \x27vue\x27
 
                                 const formRef = ref(null)
 
-                                // Use in template: <Form ref="formRef" ...>
+                                // Use in template: <Form ref=&quot;formRef&quot; ...>
                                 // Then call methods from anywhere:
                                 formRef.value?.submit()
                                 formRef.value?.reset()
                                 formRef.value?.clearErrors()
-                            `' />
+                            `"
+                            />
 
                             <p class="text-sm text-muted-foreground">
                                 These buttons call methods via

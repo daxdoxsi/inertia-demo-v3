@@ -21,9 +21,17 @@ function url(path: string) {
 }
 
 const links = [
-    props.docs ? { label: 'Docs', href: `https://inertiajs.com/docs/v3/${props.docs}`, external: true } : null,
+    props.docs
+        ? {
+              label: 'Docs',
+              href: `https://inertiajs.com/docs/v3/${props.docs}`,
+              external: true,
+          }
+        : null,
     { label: 'Vue page', href: url(componentPath) },
-    props.controller ? { label: 'Controller', href: url(props.controller) } : null,
+    props.controller
+        ? { label: 'Controller', href: url(props.controller) }
+        : null,
 ].filter(Boolean) as { label: string; href: string; external?: boolean }[];
 </script>
 

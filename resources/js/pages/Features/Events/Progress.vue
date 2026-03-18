@@ -69,7 +69,8 @@ const breadcrumbs: BreadcrumbItem[] = [
                     <template #description>
                         Set in <code class="text-xs">createInertiaApp</code>.
                     </template>
-                    <CodeBlock code="
+                    <CodeBlock
+                        code="
                         createInertiaApp({
                           progress: {
                             delay: 250,        // ms before bar shows
@@ -78,7 +79,8 @@ const breadcrumbs: BreadcrumbItem[] = [
                             showSpinner: false, // show spinner icon
                           },
                         })
-                    " />
+                    "
+                    />
                 </FeatureCard>
 
                 <FeatureCard

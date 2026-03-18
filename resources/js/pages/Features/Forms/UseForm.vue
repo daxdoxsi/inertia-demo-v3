@@ -235,12 +235,16 @@ function submitWithTransform() {
                         title="Form Data"
                         description="Current form values that will be submitted."
                     >
-                        <CodeBlock :code="JSON.stringify(form.data(), null, 2)" />
+                        <CodeBlock
+                            :code="JSON.stringify(form.data(), null, 2)"
+                        />
                     </FeatureCard>
 
                     <!-- Errors -->
                     <FeatureCard info-card v-if="form.hasErrors" title="Errors">
-                        <CodeBlock :code="JSON.stringify(form.errors, null, 2)" />
+                        <CodeBlock
+                            :code="JSON.stringify(form.errors, null, 2)"
+                        />
                     </FeatureCard>
 
                     <!-- Actions -->

@@ -332,9 +332,9 @@ function toggleFavoriteUseForm(contact: {
                             >
                                 <CodeBlock
                                     title="<Form :optimistic>"
-                                    :code='`<Form :optimistic="(props, data) => ({
+                                    :code="`<Form :optimistic=&quot;(props, data) => ({
   contacts: /* updated */
-})" />`'
+})&quot; />`"
                                 />
                             </div>
                         </div>

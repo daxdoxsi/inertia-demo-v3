@@ -106,13 +106,22 @@ function reset() {
                 >
                     <div class="space-y-3">
                         <div class="space-y-2">
-                            <CodeBlock title="In Layout:" code="const layout = useLayoutProps({
+                            <CodeBlock
+                                title="In Layout:"
+                                code="const layout = useLayoutProps({
   subtitle: '',
-})" />
-                            <CodeBlock title="In Page:" code="setLayoutProps({
+})"
+                            />
+                            <CodeBlock
+                                title="In Page:"
+                                code="setLayoutProps({
   subtitle: 'Custom subtitle',
-})" />
-                            <CodeBlock title="Reset:" code="resetLayoutProps()" />
+})"
+                            />
+                            <CodeBlock
+                                title="Reset:"
+                                code="resetLayoutProps()"
+                            />
                         </div>
                     </div>
                 </FeatureCard>

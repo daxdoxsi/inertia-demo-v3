@@ -69,9 +69,9 @@ const pageCounter = ref(0);
                 />
                 <CodeBlock
                     title="Standard (non-persistent):"
-                    :code='`<AppLayout :breadcrumbs="...">
+                    :code="`<AppLayout :breadcrumbs=&quot;...&quot;>
   <!-- page content -->
-</AppLayout>`'
+</AppLayout>`"
                 />
                 <p class="text-xs text-muted-foreground">
                     With persistent layouts, Inertia keeps the layout instance

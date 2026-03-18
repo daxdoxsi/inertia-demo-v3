@@ -36,14 +36,14 @@ const breadcrumbs: BreadcrumbItem[] = [
                 >
                     <div class="space-y-3">
                         <CodeBlock
-                            :code='`
-                                import AppLayout from "./AppLayout.vue"
-                                import SectionLayout from "./SectionLayout.vue"
+                            :code="`
+                                import AppLayout from &quot;./AppLayout.vue&quot;
+                                import SectionLayout from &quot;./SectionLayout.vue&quot;
 
                                 defineOptions({
                                   layout: [AppLayout, SectionLayout],
                                 })
-                            `'
+                            `"
                         />
                         <p class="text-xs text-muted-foreground">
                             This renders as:
@@ -105,11 +105,11 @@ const breadcrumbs: BreadcrumbItem[] = [
                         <div>
                             <CodeBlock
                                 title="Standard pages:"
-                                :code='`
-                                    <AppLayout :breadcrumbs="...">
+                                :code="`
+                                    <AppLayout :breadcrumbs=&quot;...&quot;>
                                       <!-- page content -->
                                     </AppLayout>
-                                `'
+                                `"
                             />
                             <p class="mt-2 text-xs text-muted-foreground">
                                 Single layout wrapping page content directly in
@@ -119,7 +119,7 @@ const breadcrumbs: BreadcrumbItem[] = [
                         <div>
                             <CodeBlock
                                 title="Persistent nested:"
-                                :code='`
+                                :code="`
                                     defineOptions({
                                       layout: [AppLayout, SectionLayout],
                                     })
@@ -128,7 +128,7 @@ const breadcrumbs: BreadcrumbItem[] = [
                                     <template>
                                       <!-- content only -->
                                     </template>
-                                `'
+                                `"
                             />
                             <p class="mt-2 text-xs text-muted-foreground">
                                 The template has no layout wrapper. Inertia

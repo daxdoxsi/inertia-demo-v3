@@ -129,7 +129,9 @@ function submitSecondary() {
                     <!-- Error display -->
                     <div v-if="primaryForm.hasErrors" class="mt-4 space-y-2">
                         <h4 class="text-sm font-semibold">form.errors</h4>
-                        <CodeBlock :code="JSON.stringify(primaryForm.errors, null, 2)" />
+                        <CodeBlock
+                            :code="JSON.stringify(primaryForm.errors, null, 2)"
+                        />
                     </div>
                 </FeatureCard>
 
@@ -196,7 +198,11 @@ function submitSecondary() {
                         <h4 class="text-sm font-semibold">
                             secondaryForm.errors
                         </h4>
-                        <CodeBlock :code="JSON.stringify(secondaryForm.errors, null, 2)" />
+                        <CodeBlock
+                            :code="
+                                JSON.stringify(secondaryForm.errors, null, 2)
+                            "
+                        />
                     </div>
                 </FeatureCard>
 

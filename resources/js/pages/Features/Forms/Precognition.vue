@@ -1,8 +1,8 @@
 <script setup lang="ts">
 import { Form, Head, useForm } from '@inertiajs/vue3';
-import CodeBlock from '@/components/CodeBlock.vue';
 import { CheckCircle2, XCircle } from 'lucide-vue-next';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import InputError from '@/components/InputError.vue';
@@ -29,7 +29,6 @@ const form = useForm('post', storeAccount.url(), {
 });
 
 form.setValidationTimeout(500);
-
 </script>
 
 <template>
@@ -495,19 +494,25 @@ form.setValidationTimeout(500);
                 <div class="space-y-6">
                     <FeatureCard info-card title="Form Component vs useForm">
                         <div class="space-y-3 text-sm text-muted-foreground">
-                            <CodeBlock title="Form Component" :code='`
+                            <CodeBlock
+                                title="Form Component"
+                                :code="`
                                 <Form
-                                  action="/endpoint"
-                                  method="post"
-                                  :validation-timeout="500"
-                                  #default="{ validate, valid, invalid, ... }"
+                                  action=&quot;/endpoint&quot;
+                                  method=&quot;post&quot;
+                                  :validation-timeout=&quot;500&quot;
+                                  #default=&quot;{ validate, valid, invalid, ... }&quot;
                                 >
-                            `' />
-                            <CodeBlock title="useForm" code="
+                            `"
+                            />
+                            <CodeBlock
+                                title="useForm"
+                                code="
                                 const form = useForm('post', '/endpoint', { ... })
                                 form.setValidationTimeout(500)
                                 // form.validate(), form.valid(), etc.
-                            " />
+                            "
+                            />
                             <p>
                                 Both approaches provide the same precognition
                                 features. The

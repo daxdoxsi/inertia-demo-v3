@@ -17,7 +17,6 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 const dynamicTitle = ref('Head Component');
 const metaDescription = ref('Document head management with Inertia.js');
-
 </script>
 
 <template>
@@ -86,12 +85,12 @@ const metaDescription = ref('Document head management with Inertia.js');
                         </div>
                         <CodeBlock
                             title="Current meta tags:"
-                            :code='`
-<meta name="description"
-  content="${metaDescription}" />
-<meta property="og:title"
-  content="${dynamicTitle}" />
-                            `'
+                            :code="`
+<meta name=&quot;description&quot;
+  content=&quot;${metaDescription}&quot; />
+<meta property=&quot;og:title&quot;
+  content=&quot;${dynamicTitle}&quot; />
+                            `"
                         />
                     </div>
                 </FeatureCard>
@@ -103,16 +102,19 @@ const metaDescription = ref('Document head management with Inertia.js');
                         <code class="text-xs">createInertiaApp</code>.
                     </template>
                     <div class="space-y-3">
-                        <CodeBlock :code='`
+                        <CodeBlock
+                            :code="`
                             createInertiaApp({
                               title: (title) =>
                                 title ? \`\${title} - \${appName}\` : appName,
                             })
-                        `' />
+                        `"
+                        />
                         <p class="text-xs text-muted-foreground">
                             This app uses the template above. So
                             <code>&lt;Head title="Home" /&gt;</code> becomes
-                            <code>"Home - Inertia Kitchen Sink"</code> in the browser tab.
+                            <code>"Home - Inertia Kitchen Sink"</code> in the
+                            browser tab.
                         </p>
                     </div>
                 </FeatureCard>
@@ -126,21 +128,21 @@ const metaDescription = ref('Document head management with Inertia.js');
                     <div class="space-y-3">
                         <CodeBlock
                             title="Layout sets defaults:"
-                            :code='`
+                            :code="`
 <Head>
-  <meta head-key="description"
-    content="Default" />
+  <meta head-key=&quot;description&quot;
+    content=&quot;Default&quot; />
 </Head>
-                            `'
+                            `"
                         />
                         <CodeBlock
                             title="Page overrides:"
-                            :code='`
+                            :code="`
 <Head>
-  <meta head-key="description"
-    content="Page-specific" />
+  <meta head-key=&quot;description&quot;
+    content=&quot;Page-specific&quot; />
 </Head>
-                            `'
+                            `"
                         />
                         <p class="text-xs text-muted-foreground">
                             Only one tag with the same
@@ -159,18 +161,18 @@ const metaDescription = ref('Document head management with Inertia.js');
                     <div class="grid gap-3 sm:grid-cols-3">
                         <CodeBlock
                             title="Title shorthand"
-                            :code='`
-<Head title="My Page" />
-                            `'
+                            :code="`
+<Head title=&quot;My Page&quot; />
+                            `"
                         />
                         <CodeBlock
                             title="Full control"
-                            :code='`
+                            :code="`
 <Head>
   <title>My Page</title>
   <meta ... />
 </Head>
-                            `'
+                            `"
                         />
                         <CodeBlock
                             title="Reset on unmount"

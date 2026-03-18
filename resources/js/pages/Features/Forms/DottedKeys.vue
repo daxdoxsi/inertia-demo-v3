@@ -202,26 +202,26 @@ const parsedData = computed(
                         <div class="space-y-3 text-sm text-muted-foreground">
                             <CodeBlock
                                 title="Nested Objects"
-                                :code='`
-                                    <input name="user.name" />
-                                    <input name="user.email" />
+                                :code="`
+                                    <input name=&quot;user.name&quot; />
+                                    <input name=&quot;user.email&quot; />
                                     // Submits: { user: { name: ..., email: ... } }
-                                `'
+                                `"
                             />
                             <CodeBlock
                                 title="Array Fields"
-                                :code='`
-                                    <input name="tags[]" />
-                                    <input name="tags[]" />
-                                    // Submits: { tags: ["a", "b"] }
-                                `'
+                                :code="`
+                                    <input name=&quot;tags[]&quot; />
+                                    <input name=&quot;tags[]&quot; />
+                                    // Submits: { tags: [&quot;a&quot;, &quot;b&quot;] }
+                                `"
                             />
                             <CodeBlock
                                 title="Escaped Dots"
-                                :code='`
-                                    <input name="config\\.version" />
-                                    // Submits: { "config.version": "1.0" }
-                                `'
+                                :code="`
+                                    <input name=&quot;config\\.version&quot; />
+                                    // Submits: { &quot;config.version&quot;: &quot;1.0&quot; }
+                                `"
                             />
                         </div>
                     </FeatureCard>

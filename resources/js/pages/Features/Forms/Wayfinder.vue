@@ -51,7 +51,6 @@ const precogForm = useForm({
     password: '',
     password_confirmation: '',
 }).withPrecognition(storeAccount());
-
 </script>
 
 <template>
@@ -86,7 +85,9 @@ const precogForm = useForm({
 
                     <div class="grid gap-6 lg:grid-cols-3">
                         <FeatureCard title="useForm">
-                            <CodeBlock code="form.submit('post', '/features/forms/use-form')" />
+                            <CodeBlock
+                                code="form.submit('post', '/features/forms/use-form')"
+                            />
 
                             <form
                                 class="mt-3 space-y-3"
@@ -131,10 +132,10 @@ const precogForm = useForm({
 
                         <FeatureCard title="<Form>">
                             <CodeBlock
-                                :code='`
-                                    <Form action="/features/forms/form-component"
-                                          method="post">
-                                `'
+                                :code="`
+                                    <Form action=&quot;/features/forms/form-component&quot;
+                                          method=&quot;post&quot;>
+                                `"
                             />
 
                             <Form
@@ -175,12 +176,14 @@ const precogForm = useForm({
                         </FeatureCard>
 
                         <FeatureCard title="router / <Link>">
-                            <CodeBlock :code='`
+                            <CodeBlock
+                                :code="`
                                 router.visit(\x27/features/forms/wayfinder\x27)
                                 router.post(\x27/features/forms/optimistic-toggle/1\x27, data)
 
-                                <Link href="/contacts">
-                            `' />
+                                <Link href=&quot;/contacts&quot;>
+                            `"
+                            />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -217,14 +220,14 @@ const precogForm = useForm({
                         </p>
                         <CodeBlock
                             class="mt-2"
-                            :code='`
+                            :code="`
                                 import { submitUseForm, toggleFavorite } from \x27@/wayfinder/.../FormController\x27
 
                                 submitUseForm()        // ${JSON.stringify(submitUseForm())}
-                                submitUseForm.url()    // "${submitUseForm.url()}"
+                                submitUseForm.url()    // &quot;${submitUseForm.url()}&quot;
                                 toggleFavorite(1)      // ${JSON.stringify(toggleFavorite(1))}
-                                toggleFavorite.url(1)  // "${toggleFavorite.url(1)}"
-                            `'
+                                toggleFavorite.url(1)  // &quot;${toggleFavorite.url(1)}&quot;
+                            `"
                         />
                     </div>
 
@@ -276,7 +279,7 @@ const precogForm = useForm({
                             description="The :action prop accepts the { url, method } object directly."
                         >
                             <CodeBlock
-                                :code='`<Form :action="submitFormComponent()">`'
+                                :code="`<Form :action=&quot;submitFormComponent()&quot;>`"
                             />
 
                             <Form
@@ -319,7 +322,8 @@ const precogForm = useForm({
                             title="router / <Link>"
                             description="router and Link both accept { url, method } objects."
                         >
-                            <CodeBlock :code='`
+                            <CodeBlock
+                                :code="`
                                 // Extracts method + URL from action
                                 router.visit(wayfinderAction())
                                 router.visit(toggleFavorite(contact))
@@ -328,9 +332,10 @@ const precogForm = useForm({
                                 router.post(toggleFavorite.url(contact))
 
                                 // Link also accepts object or string
-                                <Link :href="contacts.show(id)">
-                                <Link :href="contacts.index.url()">
-                            `' />
+                                <Link :href=&quot;contacts.show(id)&quot;>
+                                <Link :href=&quot;contacts.index.url()&quot;>
+                            `"
+                            />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -388,13 +393,13 @@ const precogForm = useForm({
                         </p>
                         <CodeBlock
                             class="mt-2"
-                            :code='`
+                            :code="`
                                 import contacts from \x27@/wayfinder/routes/contacts\x27
 
                                 contacts.index()     // ${JSON.stringify(contacts.index())}
                                 contacts.show(1)     // ${JSON.stringify(contacts.show(1))}
-                                contacts.show.url(1) // "${contacts.show.url(1)}"
-                            `'
+                                contacts.show.url(1) // &quot;${contacts.show.url(1)}&quot;
+                            `"
                         />
                     </div>
 
@@ -446,7 +451,7 @@ const precogForm = useForm({
                             description="Pass the named route action directly to :action."
                         >
                             <CodeBlock
-                                :code='`<Form :action="submitFormComponent()">`'
+                                :code="`<Form :action=&quot;submitFormComponent()&quot;>`"
                             />
 
                             <Form
@@ -490,13 +495,13 @@ const precogForm = useForm({
                             description="Use named routes for navigation and programmatic visits."
                         >
                             <CodeBlock
-                                :code='`
+                                :code="`
                                     router.visit(contacts.index())
                                     router.visit(contacts.destroy(id))
                                     router.prefetch(contacts.show(id))
 
-                                    <Link :href="contacts.create()">
-                                `'
+                                    <Link :href=&quot;contacts.create()&quot;>
+                                `"
                             />
 
                             <div class="mt-3 flex flex-wrap gap-2">
@@ -557,19 +562,19 @@ const precogForm = useForm({
                         </p>
                         <CodeBlock
                             class="mt-2"
-                            :code='`
+                            :code="`
                                 import { submitFormComponent, toggleFavorite } from \x27@/wayfinder/.../FormController\x27
 
                                 submitFormComponent.form()  // ${JSON.stringify(submitFormComponent.form())}
                                 toggleFavorite.form(1)      // ${JSON.stringify(toggleFavorite.form(1))}
-                            `'
+                            `"
                         />
                     </div>
 
                     <div class="grid gap-6 lg:grid-cols-2">
                         <FeatureCard title="v-bind with .form()">
                             <CodeBlock
-                                :code='`<Form v-bind="submitFormComponent.form()">`'
+                                :code="`<Form v-bind=&quot;submitFormComponent.form()&quot;>`"
                             />
 
                             <Form
@@ -609,7 +614,8 @@ const precogForm = useForm({
                         </FeatureCard>
 
                         <FeatureCard title="With route parameters">
-                            <CodeBlock :code='`
+                            <CodeBlock
+                                :code="`
                                 // Positional
                                 toggleFavorite.form(1)
                                 // ${JSON.stringify(toggleFavorite.form(1))}
@@ -621,7 +627,8 @@ const precogForm = useForm({
                                 // Model object
                                 toggleFavorite.form({ id: 1 })
                                 // ${JSON.stringify(toggleFavorite.form({ id: 1 }))}
-                            `' />
+                            `"
+                            />
                         </FeatureCard>
                     </div>
                 </div>
@@ -644,13 +651,15 @@ const precogForm = useForm({
                             title="query"
                             description="Sets query parameters on the generated URL."
                         >
-                            <CodeBlock :code='`
+                            <CodeBlock
+                                :code="`
                                 contacts.index({ query: { search: \x27Jane\x27, page: 2 } })
-                                // ${JSON.stringify(contacts.index({ query: { search: "Jane", page: 2 } }))}
+                                // ${JSON.stringify(contacts.index({ query: { search: 'Jane', page: 2 } }))}
 
                                 toggleFavorite(1, { query: { notify: true } })
                                 // ${JSON.stringify(toggleFavorite(1, { query: { notify: true } }))}
-                            `' />
+                            `"
+                            />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button variant="outline" size="sm" as-child>
@@ -682,7 +691,8 @@ const precogForm = useForm({
                             title="mergeQuery"
                             description="Merges with current URL params. Pass null to remove a param."
                         >
-                            <CodeBlock :code='`
+                            <CodeBlock
+                                :code="`
                                 // Adds page=2 to current URL params
                                 contacts.index({ mergeQuery: { page: 2 } })
                                 // ${JSON.stringify(contacts.index({ mergeQuery: { page: 2 } }))}
@@ -690,7 +700,8 @@ const precogForm = useForm({
                                 // Removes sort from current URL params
                                 contacts.index({ mergeQuery: { sort: null } })
                                 // ${JSON.stringify(contacts.index({ mergeQuery: { sort: null } }))}
-                            `' />
+                            `"
+                            />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -756,18 +767,20 @@ const precogForm = useForm({
                                 >
                                 and pass a Wayfinder route directly.
                             </template>
-                            <CodeBlock :code='`
+                            <CodeBlock
+                                :code="`
                                 const form = useForm({
                                     username: \x27\x27, email: \x27\x27, ...
                                 }).withPrecognition(storeAccount())
 
                                 // Validate on field change
-                                @change="form.validate(\x27username\x27)"
+                                @change=&quot;form.validate(\x27username\x27)&quot;
 
                                 // Check field status
                                 form.valid(\x27username\x27)
                                 form.invalid(\x27username\x27)
-                            `' />
+                            `"
+                            />
 
                             <form
                                 class="mt-3 space-y-3"
@@ -914,11 +927,11 @@ const precogForm = useForm({
                                 to enable it.
                             </template>
                             <CodeBlock
-                                :code='`
-                                    <Form v-bind="storeAccount.form()"
-                                          :validation-timeout="500"
-                                          #default="{ validate, valid, invalid }">
-                                `'
+                                :code="`
+                                    <Form v-bind=&quot;storeAccount.form()&quot;
+                                          :validation-timeout=&quot;500&quot;
+                                          #default=&quot;{ validate, valid, invalid }&quot;>
+                                `"
                             />
 
                             <Form

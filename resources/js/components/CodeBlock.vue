@@ -7,7 +7,9 @@ defineProps<{
 function dedent(raw: string) {
     const lines = raw.replace(/^\n/, '').replace(/\s+$/, '').split('\n');
     const indent = Math.min(
-        ...lines.filter((l) => l.trim()).map((l) => l.match(/^(\s*)/)?.[1].length ?? 0),
+        ...lines
+            .filter((l) => l.trim())
+            .map((l) => l.match(/^(\s*)/)?.[1].length ?? 0),
     );
 
     return lines.map((l) => l.slice(indent)).join('\n');

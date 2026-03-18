@@ -136,11 +136,13 @@ function visitWithCallbackProps() {
                         <Button @click="visitBasic">
                             Visit Target (2s delay)
                         </Button>
-                        <CodeBlock code="
+                        <CodeBlock
+                            code="
                             router.visit(targetUrl, {
                               component: 'Features/.../Target',
                             })
-                        " />
+                        "
+                        />
                     </div>
                 </FeatureCard>
 
@@ -157,7 +159,8 @@ function visitWithCallbackProps() {
                         <Button @click="visitWithPlaceholderProps">
                             Visit with Placeholders
                         </Button>
-                        <CodeBlock code="
+                        <CodeBlock
+                            code="
                             router.visit(targetUrl, {
                               component: 'Features/.../Target',
                               pageProps: (_, sharedProps) => ({
@@ -166,7 +169,8 @@ function visitWithCallbackProps() {
                                 items: [],
                               }),
                             })
-                        " />
+                        "
+                        />
                     </div>
                 </FeatureCard>
 
@@ -181,15 +185,17 @@ function visitWithCallbackProps() {
                         <Button @click="visitWithCallbackProps">
                             Visit with Callback
                         </Button>
-                        <CodeBlock :code='`
+                        <CodeBlock
+                            :code="`
                             router.visit(targetUrl, {
-                              component: "Features/.../Target",
+                              component: &quot;Features/.../Target&quot;,
                               pageProps: (currentProps, sharedProps) => ({
                                 ...sharedProps,
-                                greeting: \`Navigating from source (was: "\${currentProps.message}")\`,
+                                greeting: \`Navigating from source (was: &quot;\${currentProps.message}&quot;)\`,
                               }),
                             })
-                        `' />
+                        `"
+                        />
                     </div>
                 </FeatureCard>
 
@@ -208,14 +214,16 @@ function visitWithCallbackProps() {
                         >
                             Link with component
                         </Link>
-                        <CodeBlock :code='`
+                        <CodeBlock
+                            :code="`
                             <Link
-                              :href="targetUrl"
-                              component="Features/.../Target"
+                              :href=&quot;targetUrl&quot;
+                              component=&quot;Features/.../Target&quot;
                             >
                               Link with component
                             </Link>
-                        `' />
+                        `"
+                        />
                     </div>
                 </FeatureCard>
 
@@ -226,25 +234,34 @@ function visitWithCallbackProps() {
                     title="API Reference"
                 >
                     <div class="grid gap-3 sm:grid-cols-3">
-                        <CodeBlock title="router.visit()" code="
+                        <CodeBlock
+                            title="router.visit()"
+                            code="
                             router.visit(url, {
                               component: 'Page/Name',
                               pageProps: { ... },
                             })
-                        " />
-                        <CodeBlock :code='`
+                        "
+                        />
+                        <CodeBlock
+                            :code="`
                             <Link
-                              href="/target"
-                              component="Page/Name"
-                              :page-props="{ ... }"
+                              href=&quot;/target&quot;
+                              component=&quot;Page/Name&quot;
+                              :page-props=&quot;{ ... }&quot;
                             />
-                        `' title="<Link>" />
-                        <CodeBlock title="pageProps callback" code="
+                        `"
+                            title="<Link>"
+                        />
+                        <CodeBlock
+                            title="pageProps callback"
+                            code="
                             pageProps: (current, shared) => ({
                               ...shared,
                               custom: 'value',
                             })
-                        " />
+                        "
+                        />
                     </div>
                 </FeatureCard>
             </div>
