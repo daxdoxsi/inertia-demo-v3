@@ -59,7 +59,7 @@ function copy() {
 
 <template>
     <div
-        class="group relative rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
+        class="group relative rounded-lg border border-black/10 bg-neutral-50 p-3 font-mono text-xs dark:border-white/10 dark:bg-neutral-900/80"
     >
         <button
             type="button"
