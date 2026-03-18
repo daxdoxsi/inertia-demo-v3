@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import FormContextField from '@/components/FormContextField.vue';
@@ -198,29 +199,19 @@ const breadcrumbs: BreadcrumbItem[] = [
 
                     <FeatureCard info-card title="API Reference">
                         <div class="space-y-3">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <p class="font-semibold">Child Component</p>
-                                <pre class="mt-1">
-import { useFormContext } from '@inertiajs/vue3'
+                            <CodeBlock
+                                title="Child Component"
+                                code="import { useFormContext } from '@inertiajs/vue3'
 
 const form = useFormContext()
 // form.errors, form.processing, form.isDirty
-// form.validate('field'), form.touch('field')</pre
-                                >
-                            </div>
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <p class="font-semibold">
-                                    Returns null outside Form
-                                </p>
-                                <pre class="mt-1">
-const form = useFormContext()
-// Returns null if not inside a &lt;Form&gt;</pre
-                                >
-                            </div>
+// form.validate('field'), form.touch('field')"
+                            />
+                            <CodeBlock
+                                title="Returns null outside Form"
+                                :code="`const form = useFormContext()
+// Returns null if not inside a <Form>`"
+                            />
                         </div>
                     </FeatureCard>
                 </div>

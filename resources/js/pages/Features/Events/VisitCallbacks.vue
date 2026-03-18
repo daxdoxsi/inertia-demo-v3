@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Button } from '@/components/ui/button';
@@ -237,17 +238,15 @@ function triggerWithCancelToken() {
                     class="lg:col-span-2"
                     title="Code Example"
                 >
-                    <pre
-                        class="overflow-auto rounded-lg border border-black/5 bg-neutral-50/80 p-4 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                    >
-router.post('/endpoint', data, {
-  onBefore: (visit) => confirm('Proceed?'),
-  onStart: (visit) => console.log('Started'),
-  onSuccess: (page) => console.log('Success!'),
-  onError: (errors) => console.log(errors),
-  onFinish: (visit) => console.log('Done'),
-})</pre
-                    >
+                    <CodeBlock code="
+                        router.post('/endpoint', data, {
+                          onBefore: (visit) => confirm('Proceed?'),
+                          onStart: (visit) => console.log('Started'),
+                          onSuccess: (page) => console.log('Success!'),
+                          onError: (errors) => console.log(errors),
+                          onFinish: (visit) => console.log('Done'),
+                        })
+                    " />
                 </FeatureCard>
             </div>
         </div>

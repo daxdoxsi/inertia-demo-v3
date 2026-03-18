@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, router } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -118,7 +119,7 @@ const otherPage = () => (props.page === 1 ? 2 : 1);
                                 <li>
                                     <strong>.fresh()</strong> re-evaluates on
                                     every visit.
-                                    <strong>.until(5s)</strong> remembers for 30
+                                    <strong>.until(5s)</strong> remembers for 5
                                     seconds.
                                 </li>
                             </ul>
@@ -212,7 +213,7 @@ const otherPage = () => (props.page === 1 ? 2 : 1);
                 <FeatureCard title=".until(5s)">
                     <template #description>
                         <code class="text-xs"
-                            >Inertia::once(...)->until(30)</code
+                            >Inertia::once(...)->until(now()->addSeconds(5))</code
                         >. Remembered for 5 seconds, then re-evaluated on the
                         next visit.
                     </template>
@@ -274,24 +275,22 @@ const otherPage = () => (props.page === 1 ? 2 : 1);
                 <!-- API Reference -->
                 <FeatureCard info-card title="Fluent API">
                     <div class="space-y-3 text-xs">
-                        <div class="rounded-md bg-muted p-3">
-                            <pre>
-// Basic once prop
-Inertia::once(fn () => ...);
+                        <CodeBlock code="
+                            // Basic once prop
+                            Inertia::once(fn () => ...);
 
-// Always re-evaluate
-Inertia::once(fn () => ...)->fresh();
+                            // Always re-evaluate
+                            Inertia::once(fn () => ...)->fresh();
 
-// Expire after 5s
-Inertia::once(fn () => ...)->until(5);
+                            // Expire after 5s
+                            Inertia::once(fn () => ...)->until(now()->addSeconds(5));
 
-// Custom cache key
-Inertia::once(fn () => ...)->as('key');
+                            // Custom cache key
+                            Inertia::once(fn () => ...)->as('key');
 
-// Shared once prop
-Inertia::shareOnce('key', value);</pre
-                            >
-                        </div>
+                            // Shared once prop
+                            Inertia::shareOnce('key', value);
+                        " />
                     </div>
                 </FeatureCard>
             </div>

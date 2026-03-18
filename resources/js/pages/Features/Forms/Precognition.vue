@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Form, Head, useForm } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import { CheckCircle2, XCircle } from 'lucide-vue-next';
 import { ref } from 'vue';
 import FeatureCard from '@/components/FeatureCard.vue';
@@ -28,6 +29,7 @@ const form = useForm('post', storeAccount.url(), {
 });
 
 form.setValidationTimeout(500);
+
 </script>
 
 <template>
@@ -493,29 +495,19 @@ form.setValidationTimeout(500);
                 <div class="space-y-6">
                     <FeatureCard info-card title="Form Component vs useForm">
                         <div class="space-y-3 text-sm text-muted-foreground">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <p class="font-semibold">Form Component</p>
-                                <pre class="mt-1">
-&lt;Form
-  action="/endpoint"
-  method="post"
-  :validation-timeout="500"
-  #default="{{ '{ validate, valid, invalid, ... }' }}"
-&gt;</pre
+                            <CodeBlock title="Form Component" :code='`
+                                <Form
+                                  action="/endpoint"
+                                  method="post"
+                                  :validation-timeout="500"
+                                  #default="{ validate, valid, invalid, ... }"
                                 >
-                            </div>
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <p class="font-semibold">useForm</p>
-                                <pre class="mt-1">
-const form = useForm('post', '/endpoint', {{ '{ ... }' }})
-form.setValidationTimeout(500)
-// form.validate(), form.valid(), etc.</pre
-                                >
-                            </div>
+                            `' />
+                            <CodeBlock title="useForm" code="
+                                const form = useForm('post', '/endpoint', { ... })
+                                form.setValidationTimeout(500)
+                                // form.validate(), form.valid(), etc.
+                            " />
                             <p>
                                 Both approaches provide the same precognition
                                 features. The

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -16,6 +17,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
 const dynamicTitle = ref('Head Component');
 const metaDescription = ref('Document head management with Inertia.js');
+
 </script>
 
 <template>
@@ -82,17 +84,15 @@ const metaDescription = ref('Document head management with Inertia.js');
                                 placeholder="Enter a description..."
                             />
                         </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Current meta tags:</p>
-                            <pre class="mt-1">
-&lt;meta name="description"
-  content="{{ metaDescription }}" /&gt;
-&lt;meta property="og:title"
-  content="{{ dynamicTitle }}" /&gt;</pre
-                            >
-                        </div>
+                        <CodeBlock
+                            title="Current meta tags:"
+                            :code='`
+<meta name="description"
+  content="${metaDescription}" />
+<meta property="og:title"
+  content="${dynamicTitle}" />
+                            `'
+                        />
                     </div>
                 </FeatureCard>
 
@@ -103,20 +103,16 @@ const metaDescription = ref('Document head management with Inertia.js');
                         <code class="text-xs">createInertiaApp</code>.
                     </template>
                     <div class="space-y-3">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-createInertiaApp({
-  title: (title) =>
-    title ? `${title} - ${appName}` : appName,
-})</pre
-                            >
-                        </div>
+                        <CodeBlock :code='`
+                            createInertiaApp({
+                              title: (title) =>
+                                title ? \`\${title} - \${appName}\` : appName,
+                            })
+                        `' />
                         <p class="text-xs text-muted-foreground">
                             This app uses the template above. So
                             <code>&lt;Head title="Home" /&gt;</code> becomes
-                            <code>"Home - Laravel"</code> in the browser tab.
+                            <code>"Home - Inertia Kitchen Sink"</code> in the browser tab.
                         </p>
                     </div>
                 </FeatureCard>
@@ -128,28 +124,24 @@ createInertiaApp({
                         duplicate tags.
                     </template>
                     <div class="space-y-3">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Layout sets defaults:</p>
-                            <pre class="mt-1">
-&lt;Head&gt;
-  &lt;meta head-key="description"
-    content="Default" /&gt;
-&lt;/Head&gt;</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Page overrides:</p>
-                            <pre class="mt-1">
-&lt;Head&gt;
-  &lt;meta head-key="description"
-    content="Page-specific" /&gt;
-&lt;/Head&gt;</pre
-                            >
-                        </div>
+                        <CodeBlock
+                            title="Layout sets defaults:"
+                            :code='`
+<Head>
+  <meta head-key="description"
+    content="Default" />
+</Head>
+                            `'
+                        />
+                        <CodeBlock
+                            title="Page overrides:"
+                            :code='`
+<Head>
+  <meta head-key="description"
+    content="Page-specific" />
+</Head>
+                            `'
+                        />
                         <p class="text-xs text-muted-foreground">
                             Only one tag with the same
                             <code>head-key</code> renders. The page-level tag
@@ -165,35 +157,27 @@ createInertiaApp({
                     title="API Reference"
                 >
                     <div class="grid gap-3 sm:grid-cols-3">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Title shorthand</p>
-                            <pre class="mt-1">
-&lt;Head title="My Page" /&gt;</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Full control</p>
-                            <pre class="mt-1">
-&lt;Head&gt;
-  &lt;title&gt;My Page&lt;/title&gt;
-  &lt;meta ... /&gt;
-&lt;/Head&gt;</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Reset on unmount</p>
-                            <pre class="mt-1">
-When a page unmounts,
+                        <CodeBlock
+                            title="Title shorthand"
+                            :code='`
+<Head title="My Page" />
+                            `'
+                        />
+                        <CodeBlock
+                            title="Full control"
+                            :code='`
+<Head>
+  <title>My Page</title>
+  <meta ... />
+</Head>
+                            `'
+                        />
+                        <CodeBlock
+                            title="Reset on unmount"
+                            code="When a page unmounts,
 its Head tags are removed
-automatically.</pre
-                            >
-                        </div>
+automatically."
+                        />
                     </div>
                 </FeatureCard>
             </div>

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, Link, router } from '@inertiajs/vue3';
 import { onMounted, onUnmounted, ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -108,19 +109,17 @@ onUnmounted(() => {
                             progress event only fires during file uploads.
                         </p>
 
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Cleanup:</p>
-                            <pre class="mt-1">
-const remove = router.on('before', (e) => {
-  console.log(e.detail.visit.url)
-})
+                        <CodeBlock
+                            title="Cleanup:"
+                            code="
+                                const remove = router.on('before', (e) => {
+                                  console.log(e.detail.visit.url)
+                                })
 
-// Later: deregister the listener
-remove()</pre
-                            >
-                        </div>
+                                // Later: deregister the listener
+                                remove()
+                            "
+                        />
                     </div>
                 </FeatureCard>
 

@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, Link, router } from '@inertiajs/vue3';
 import { ref, onUnmounted } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -176,33 +177,23 @@ onUnmounted(() => {
                     title="API Reference"
                 >
                     <div class="grid gap-3 sm:grid-cols-2">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Server-side (handled):</p>
-                            <pre class="mt-1 overflow-x-auto">
-Inertia::handleExceptionsUsing(
-  function (ExceptionResponse $r) {
-    return $r->render('ErrorPage', [
-      'status' => $r->statusCode(),
+                        <CodeBlock
+                            title="Server-side (handled):"
+                            code="Inertia::handleExceptionsUsing(function (ExceptionResponse $response) {
+  if (in_array($response->statusCode(), [403, 404, 419, 429, 500, 503])) {
+    return $response->render('ErrorPage', [
+      'status' => $response->statusCode(),
     ])->withSharedData();
   }
-);</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">
-                                Client-side (intercepted):
-                            </p>
-                            <pre class="mt-1 overflow-x-auto">
-router.on('httpException', (event) => {
+});"
+                        />
+                        <CodeBlock
+                            title="Client-side (intercepted):"
+                            code="router.on('httpException', (event) => {
   console.log(event.detail.response)
   event.preventDefault()
-})</pre
-                            >
-                        </div>
+})"
+                        />
                     </div>
                 </FeatureCard>
             </div>

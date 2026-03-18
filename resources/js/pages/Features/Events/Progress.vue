@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, router } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -68,18 +69,16 @@ const breadcrumbs: BreadcrumbItem[] = [
                     <template #description>
                         Set in <code class="text-xs">createInertiaApp</code>.
                     </template>
-                    <pre
-                        class="overflow-auto rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                    >
-createInertiaApp({
-  progress: {
-    delay: 250,        // ms before bar shows
-    color: '#29d',     // bar color
-    includeCSS: true,  // include NProgress styles
-    showSpinner: false, // show spinner icon
-  },
-})</pre
-                    >
+                    <CodeBlock code="
+                        createInertiaApp({
+                          progress: {
+                            delay: 250,        // ms before bar shows
+                            color: '#29d',     // bar color
+                            includeCSS: true,  // include NProgress styles
+                            showSpinner: false, // show spinner icon
+                          },
+                        })
+                    " />
                 </FeatureCard>
 
                 <FeatureCard
@@ -88,28 +87,24 @@ createInertiaApp({
                     description="Disable progress bar for specific visits."
                 >
                     <div class="space-y-3">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Disable per visit:</p>
-                            <pre class="mt-1">
-router.get('/url', {}, {
-  showProgress: false,
-})</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Async visits:</p>
-                            <pre class="mt-1">
-// Async requests hide progress by default
-router.get('/url', {}, {
-  async: true,
-  showProgress: true, // opt-in
-})</pre
-                            >
-                        </div>
+                        <CodeBlock
+                            title="Disable per visit:"
+                            code="
+                                router.get('/url', {}, {
+                                  showProgress: false,
+                                })
+                            "
+                        />
+                        <CodeBlock
+                            title="Async visits:"
+                            code="
+                                // Async requests hide progress by default
+                                router.get('/url', {}, {
+                                  async: true,
+                                  showProgress: true, // opt-in
+                                })
+                            "
+                        />
                     </div>
                 </FeatureCard>
 

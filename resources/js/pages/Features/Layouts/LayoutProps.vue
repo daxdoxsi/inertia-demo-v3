@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, resetLayoutProps, setLayoutProps } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Button } from '@/components/ui/button';
@@ -105,26 +106,13 @@ function reset() {
                 >
                     <div class="space-y-3">
                         <div class="space-y-2">
-                            <div class="rounded-md bg-muted p-2 text-xs">
-                                <p class="font-semibold">In Layout:</p>
-                                <pre class="mt-1">
-const layout = useLayoutProps({
+                            <CodeBlock title="In Layout:" code="const layout = useLayoutProps({
   subtitle: '',
-})</pre
-                                >
-                            </div>
-                            <div class="rounded-md bg-muted p-2 text-xs">
-                                <p class="font-semibold">In Page:</p>
-                                <pre class="mt-1">
-setLayoutProps({
+})" />
+                            <CodeBlock title="In Page:" code="setLayoutProps({
   subtitle: 'Custom subtitle',
-})</pre
-                                >
-                            </div>
-                            <div class="rounded-md bg-muted p-2 text-xs">
-                                <p class="font-semibold">Reset:</p>
-                                <pre class="mt-1">resetLayoutProps()</pre>
-                            </div>
+})" />
+                            <CodeBlock title="Reset:" code="resetLayoutProps()" />
                         </div>
                     </div>
                 </FeatureCard>

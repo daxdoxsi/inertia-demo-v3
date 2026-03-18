@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import { Badge } from '@/components/ui/badge';
 import { Button } from '@/components/ui/button';
@@ -58,24 +59,20 @@ const pageCounter = ref(0);
             description="Pages declare their layout with defineOptions instead of wrapping content in the template."
         >
             <div class="space-y-3">
-                <div class="rounded-md bg-muted p-2 text-xs">
-                    <p class="font-semibold">Persistent (this page):</p>
-                    <pre class="mt-1">
-defineOptions({
+                <CodeBlock
+                    title="Persistent (this page):"
+                    code="defineOptions({
   layout: PersistentDemoLayout,
 })
 
-// No layout wrapper in template</pre
-                    >
-                </div>
-                <div class="rounded-md bg-muted p-2 text-xs">
-                    <p class="font-semibold">Standard (non-persistent):</p>
-                    <pre class="mt-1">
-&lt;AppLayout :breadcrumbs="..."&gt;
-  &lt;!-- page content --&gt;
-&lt;/AppLayout&gt;</pre
-                    >
-                </div>
+// No layout wrapper in template"
+                />
+                <CodeBlock
+                    title="Standard (non-persistent):"
+                    :code='`<AppLayout :breadcrumbs="...">
+  <!-- page content -->
+</AppLayout>`'
+                />
                 <p class="text-xs text-muted-foreground">
                     With persistent layouts, Inertia keeps the layout instance
                     mounted and only swaps the page slot content. Layout state,

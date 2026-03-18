@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import InputError from '@/components/InputError.vue';
@@ -234,18 +235,12 @@ function submitWithTransform() {
                         title="Form Data"
                         description="Current form values that will be submitted."
                     >
-                        <pre
-                            class="overflow-auto rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >{{ JSON.stringify(form.data(), null, 2) }}</pre
-                        >
+                        <CodeBlock :code="JSON.stringify(form.data(), null, 2)" />
                     </FeatureCard>
 
                     <!-- Errors -->
                     <FeatureCard info-card v-if="form.hasErrors" title="Errors">
-                        <pre
-                            class="overflow-auto rounded-md bg-destructive/10 p-3 text-xs text-destructive"
-                            >{{ JSON.stringify(form.errors, null, 2) }}</pre
-                        >
+                        <CodeBlock :code="JSON.stringify(form.errors, null, 2)" />
                     </FeatureCard>
 
                     <!-- Actions -->

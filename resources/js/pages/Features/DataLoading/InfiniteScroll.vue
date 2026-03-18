@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, InfiniteScroll, router } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -327,18 +328,16 @@ function applyFilter() {
                     </template>
                 </InfiniteScroll>
 
-                <div
-                    class="mt-4 rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                >
-                    <p><strong>Code:</strong></p>
-                    <pre class="mt-1">
-router.reload({
+                <div class="mt-4 space-y-2">
+                    <CodeBlock
+                        title="Code"
+                        code="router.reload({
   data: { favorites: '1' },
   only: ['contacts'],
   reset: ['contacts'], // Clears loaded pages
-})</pre
-                    >
-                    <p class="mt-2">
+})"
+                    />
+                    <p class="text-sm text-muted-foreground">
                         Without <code>reset</code>, new filtered results would
                         merge with stale pages.
                     </p>

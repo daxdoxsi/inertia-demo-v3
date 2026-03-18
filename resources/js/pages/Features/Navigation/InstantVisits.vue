@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, Link, router } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -135,15 +136,11 @@ function visitWithCallbackProps() {
                         <Button @click="visitBasic">
                             Visit Target (2s delay)
                         </Button>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-router.visit(url, {
-  component: 'Features/.../Target',
-})</pre
-                            >
-                        </div>
+                        <CodeBlock code="
+                            router.visit(targetUrl, {
+                              component: 'Features/.../Target',
+                            })
+                        " />
                     </div>
                 </FeatureCard>
 
@@ -160,20 +157,16 @@ router.visit(url, {
                         <Button @click="visitWithPlaceholderProps">
                             Visit with Placeholders
                         </Button>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-router.visit(url, {
-  component: 'Features/.../Target',
-  pageProps: (_, shared) => ({
-    ...shared,
-    greeting: 'Loading...',
-    items: [],
-  }),
-})</pre
-                            >
-                        </div>
+                        <CodeBlock code="
+                            router.visit(targetUrl, {
+                              component: 'Features/.../Target',
+                              pageProps: (_, sharedProps) => ({
+                                ...sharedProps,
+                                greeting: 'Loading from server...',
+                                items: [],
+                              }),
+                            })
+                        " />
                     </div>
                 </FeatureCard>
 
@@ -188,19 +181,15 @@ router.visit(url, {
                         <Button @click="visitWithCallbackProps">
                             Visit with Callback
                         </Button>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-router.visit(url, {
-  component: 'Features/.../Target',
-  pageProps: (current, shared) => ({
-    ...shared,
-    greeting: `Was: ${current.message}`,
-  }),
-})</pre
-                            >
-                        </div>
+                        <CodeBlock :code='`
+                            router.visit(targetUrl, {
+                              component: "Features/.../Target",
+                              pageProps: (currentProps, sharedProps) => ({
+                                ...sharedProps,
+                                greeting: \`Navigating from source (was: "\${currentProps.message}")\`,
+                              }),
+                            })
+                        `' />
                     </div>
                 </FeatureCard>
 
@@ -219,18 +208,14 @@ router.visit(url, {
                         >
                             Link with component
                         </Link>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-&lt;Link
-  href="/target?delay=2"
-  component="Features/.../Target"
-&gt;
-  Navigate Instantly
-&lt;/Link&gt;</pre
+                        <CodeBlock :code='`
+                            <Link
+                              :href="targetUrl"
+                              component="Features/.../Target"
                             >
-                        </div>
+                              Link with component
+                            </Link>
+                        `' />
                     </div>
                 </FeatureCard>
 
@@ -241,40 +226,25 @@ router.visit(url, {
                     title="API Reference"
                 >
                     <div class="grid gap-3 sm:grid-cols-3">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">router.visit()</p>
-                            <pre class="mt-1">
-router.visit(url, {
-  component: 'Page/Name',
-  pageProps: { ... },
-})</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">&lt;Link&gt;</p>
-                            <pre class="mt-1">
-&lt;Link
-  href="/target"
-  component="Page/Name"
-  :page-props="{ ... }"
-/&gt;</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">pageProps callback</p>
-                            <pre class="mt-1">
-pageProps: (current, shared) => ({
-  ...shared,
-  custom: 'value',
-})</pre
-                            >
-                        </div>
+                        <CodeBlock title="router.visit()" code="
+                            router.visit(url, {
+                              component: 'Page/Name',
+                              pageProps: { ... },
+                            })
+                        " />
+                        <CodeBlock :code='`
+                            <Link
+                              href="/target"
+                              component="Page/Name"
+                              :page-props="{ ... }"
+                            />
+                        `' title="<Link>" />
+                        <CodeBlock title="pageProps callback" code="
+                            pageProps: (current, shared) => ({
+                              ...shared,
+                              custom: 'value',
+                            })
+                        " />
                     </div>
                 </FeatureCard>
             </div>

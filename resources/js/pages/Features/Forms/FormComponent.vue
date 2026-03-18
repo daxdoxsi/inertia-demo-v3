@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Form, Head } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import InputError from '@/components/InputError.vue';
@@ -21,6 +22,7 @@ const formRef = ref<any>(null);
 
 const resetOnSuccess = ref(false);
 const setDefaultsOnSuccess = ref(true);
+
 </script>
 
 <template>
@@ -295,20 +297,18 @@ const setDefaultsOnSuccess = ref(true);
                         description="Control the form from outside using a template ref."
                     >
                         <div class="space-y-4">
-                            <div
-                                class="rounded-lg bg-muted p-3 font-mono text-xs leading-relaxed"
-                            >
-                                <pre><code>import { Form } from '@inertiajs/vue3'
-import { ref } from 'vue'
+                            <CodeBlock :code='`
+                                import { Form } from \x27@inertiajs/vue3\x27
+                                import { ref } from \x27vue\x27
 
-const formRef = ref(null)
+                                const formRef = ref(null)
 
-// Use in template: &lt;Form ref="formRef" ...&gt;
-// Then call methods from anywhere:
-formRef.value?.submit()
-formRef.value?.reset()
-formRef.value?.clearErrors()</code></pre>
-                            </div>
+                                // Use in template: <Form ref="formRef" ...>
+                                // Then call methods from anywhere:
+                                formRef.value?.submit()
+                                formRef.value?.reset()
+                                formRef.value?.clearErrors()
+                            `' />
 
                             <p class="text-sm text-muted-foreground">
                                 These buttons call methods via

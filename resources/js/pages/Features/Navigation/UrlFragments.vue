@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, Link, router, usePage } from '@inertiajs/vue3';
 import { computed } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -99,17 +100,13 @@ function preserveFragmentVisit() {
                                 >/url-fragments#server-section</code
                             >. Check the URL bar after clicking.
                         </p>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Server</p>
-                            <pre class="mt-1">
-return redirect('/page#section');
+                        <CodeBlock
+                            title="Server"
+                            code="return redirect('/page#section');
 // Middleware detects the hash fragment
 // Ensures the client navigates to the
-// URL with the fragment intact</pre
-                            >
-                        </div>
+// URL with the fragment intact"
+                        />
                     </div>
                 </FeatureCard>
 
@@ -136,19 +133,15 @@ return redirect('/page#section');
                             The server redirects to a different URL, but the
                             original hash fragment survives.
                         </p>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Server</p>
-                            <pre class="mt-1">
-// Redirect source
+                        <CodeBlock
+                            title="Server"
+                            code="// Redirect source
 return redirect('/target')
     ->preserveFragment();
 
 // Target page responds normally
-// Client applies #fragment from original URL</pre
-                            >
-                        </div>
+// Client applies #fragment from original URL"
+                        />
                     </div>
                 </FeatureCard>
 
@@ -205,47 +198,33 @@ return redirect('/target')
                     title="API Reference"
                 >
                     <div class="grid gap-3 sm:grid-cols-3">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Hash Redirect (server)</p>
-                            <pre class="mt-1">
-// Standard Laravel redirect
+                        <CodeBlock
+                            title="Hash Redirect (server)"
+                            code="// Standard Laravel redirect
 return redirect('/page#hash');
 
 // Middleware auto-detects hash
 // and navigates to the URL
-// with the fragment intact</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">
-                                preserveFragment (server)
-                            </p>
-                            <pre class="mt-1">
-return redirect('/target')
+// with the fragment intact"
+                        />
+                        <CodeBlock
+                            title="preserveFragment (server)"
+                            code="return redirect('/target')
     ->preserveFragment();
 
 // Stores flag in session
 // Target page includes
-// preserveFragment: true</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Client usage</p>
-                            <pre class="mt-1">
-// Hash redirect. Automatic
+// preserveFragment: true"
+                        />
+                        <CodeBlock
+                            title="Client usage"
+                            code="// Hash redirect. Automatic
 router.get('/redirect-with-hash')
 
 // preserveFragment
 router.visit('/redirect#frag')
-// #frag survives the redirect</pre
-                            >
-                        </div>
+// #frag survives the redirect"
+                        />
                     </div>
                 </FeatureCard>
             </div>

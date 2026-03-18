@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Form, Head, Link, router, useForm } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import InputError from '@/components/InputError.vue';
@@ -50,6 +51,7 @@ const precogForm = useForm({
     password: '',
     password_confirmation: '',
 }).withPrecognition(storeAccount());
+
 </script>
 
 <template>
@@ -84,13 +86,7 @@ const precogForm = useForm({
 
                     <div class="grid gap-6 lg:grid-cols-3">
                         <FeatureCard title="useForm">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-form.submit('post', '/forms/use-form')</pre
-                                >
-                            </div>
+                            <CodeBlock code="form.submit('post', '/features/forms/use-form')" />
 
                             <form
                                 class="mt-3 space-y-3"
@@ -134,14 +130,12 @@ form.submit('post', '/forms/use-form')</pre
                         </FeatureCard>
 
                         <FeatureCard title="<Form>">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-&lt;Form action="/forms/form-component"
-      method="post"&gt;</pre
-                                >
-                            </div>
+                            <CodeBlock
+                                :code='`
+                                    <Form action="/features/forms/form-component"
+                                          method="post">
+                                `'
+                            />
 
                             <Form
                                 action="/features/forms/form-component"
@@ -181,16 +175,12 @@ form.submit('post', '/forms/use-form')</pre
                         </FeatureCard>
 
                         <FeatureCard title="router / <Link>">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-router.visit('/forms/wayfinder')
-router.post('/toggle/1', data)
+                            <CodeBlock :code='`
+                                router.visit(\x27/features/forms/wayfinder\x27)
+                                router.post(\x27/features/forms/optimistic-toggle/1\x27, data)
 
-&lt;Link href="/contacts"&gt;</pre
-                                >
-                            </div>
+                                <Link href="/contacts">
+                            `' />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -225,18 +215,17 @@ router.post('/toggle/1', data)
                             Import by controller method. Keeps frontend in sync
                             with your PHP controllers.
                         </p>
-                        <div
-                            class="mt-2 rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-import { submitUseForm, toggleFavorite } from '@/wayfinder/.../FormController'
+                        <CodeBlock
+                            class="mt-2"
+                            :code='`
+                                import { submitUseForm, toggleFavorite } from \x27@/wayfinder/.../FormController\x27
 
-submitUseForm()        // {{ JSON.stringify(submitUseForm()) }}
-submitUseForm.url()    // "{{ submitUseForm.url() }}"
-toggleFavorite(1)      // {{ JSON.stringify(toggleFavorite(1)) }}
-toggleFavorite.url(1)  // "{{ toggleFavorite.url(1) }}"</pre
-                            >
-                        </div>
+                                submitUseForm()        // ${JSON.stringify(submitUseForm())}
+                                submitUseForm.url()    // "${submitUseForm.url()}"
+                                toggleFavorite(1)      // ${JSON.stringify(toggleFavorite(1))}
+                                toggleFavorite.url(1)  // "${toggleFavorite.url(1)}"
+                            `'
+                        />
                     </div>
 
                     <div class="grid gap-6 lg:grid-cols-3">
@@ -244,11 +233,7 @@ toggleFavorite.url(1)  // "{{ toggleFavorite.url(1) }}"</pre
                             title="useForm"
                             description="Pass the action directly to submit(). Method and URL are extracted automatically."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>form.submit(submitUseForm())</pre>
-                            </div>
+                            <CodeBlock code="form.submit(submitUseForm())" />
 
                             <form
                                 class="mt-3 space-y-3"
@@ -290,13 +275,9 @@ toggleFavorite.url(1)  // "{{ toggleFavorite.url(1) }}"</pre
                             title="<Form>"
                             description="The :action prop accepts the { url, method } object directly."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-&lt;Form :action="submitFormComponent()"&gt;</pre
-                                >
-                            </div>
+                            <CodeBlock
+                                :code='`<Form :action="submitFormComponent()">`'
+                            />
 
                             <Form
                                 :action="submitFormComponent()"
@@ -338,22 +319,18 @@ toggleFavorite.url(1)  // "{{ toggleFavorite.url(1) }}"</pre
                             title="router / <Link>"
                             description="router and Link both accept { url, method } objects."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-// Extracts method + URL from action
-router.visit(wayfinderAction())
-router.visit(toggleFavorite(contact))
+                            <CodeBlock :code='`
+                                // Extracts method + URL from action
+                                router.visit(wayfinderAction())
+                                router.visit(toggleFavorite(contact))
 
-// Or use .url for string-only APIs
-router.post(toggleFavorite.url(contact))
+                                // Or use .url for string-only APIs
+                                router.post(toggleFavorite.url(contact))
 
-// Link also accepts object or string
-&lt;Link :href="contacts.show(id)"&gt;
-&lt;Link :href="contacts.index.url()"&gt;</pre
-                                >
-                            </div>
+                                // Link also accepts object or string
+                                <Link :href="contacts.show(id)">
+                                <Link :href="contacts.index.url()">
+                            `' />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -409,17 +386,16 @@ router.post(toggleFavorite.url(contact))
                             Import by route name. Mirrors your Laravel route
                             names exactly.
                         </p>
-                        <div
-                            class="mt-2 rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-import contacts from '@/wayfinder/routes/contacts'
+                        <CodeBlock
+                            class="mt-2"
+                            :code='`
+                                import contacts from \x27@/wayfinder/routes/contacts\x27
 
-contacts.index()     // {{ JSON.stringify(contacts.index()) }}
-contacts.show(1)     // {{ JSON.stringify(contacts.show(1)) }}
-contacts.show.url(1) // "{{ contacts.show.url(1) }}"</pre
-                            >
-                        </div>
+                                contacts.index()     // ${JSON.stringify(contacts.index())}
+                                contacts.show(1)     // ${JSON.stringify(contacts.show(1))}
+                                contacts.show.url(1) // "${contacts.show.url(1)}"
+                            `'
+                        />
                     </div>
 
                     <div class="grid gap-6 lg:grid-cols-3">
@@ -427,11 +403,7 @@ contacts.show.url(1) // "{{ contacts.show.url(1) }}"</pre
                             title="useForm"
                             description="Named route actions work exactly the same as controller actions."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>form.submit(contacts.store())</pre>
-                            </div>
+                            <CodeBlock code="form.submit(submitUseForm())" />
 
                             <form
                                 class="mt-3 space-y-3"
@@ -473,13 +445,9 @@ contacts.show.url(1) // "{{ contacts.show.url(1) }}"</pre
                             title="<Form>"
                             description="Pass the named route action directly to :action."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-&lt;Form :action="contacts.store()"&gt;</pre
-                                >
-                            </div>
+                            <CodeBlock
+                                :code='`<Form :action="submitFormComponent()">`'
+                            />
 
                             <Form
                                 :action="submitFormComponent()"
@@ -521,17 +489,15 @@ contacts.show.url(1) // "{{ contacts.show.url(1) }}"</pre
                             title="router / <Link>"
                             description="Use named routes for navigation and programmatic visits."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-router.visit(contacts.index())
-router.visit(contacts.destroy(id))
-router.prefetch(contacts.show(id))
+                            <CodeBlock
+                                :code='`
+                                    router.visit(contacts.index())
+                                    router.visit(contacts.destroy(id))
+                                    router.prefetch(contacts.show(id))
 
-&lt;Link :href="contacts.create()"&gt;</pre
-                                >
-                            </div>
+                                    <Link :href="contacts.create()">
+                                `'
+                            />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button variant="outline" size="sm" as-child>
@@ -589,27 +555,22 @@ router.prefetch(contacts.show(id))
                             >
                             component.
                         </p>
-                        <div
-                            class="mt-2 rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-import { submitFormComponent, toggleFavorite } from '@/wayfinder/.../FormController'
+                        <CodeBlock
+                            class="mt-2"
+                            :code='`
+                                import { submitFormComponent, toggleFavorite } from \x27@/wayfinder/.../FormController\x27
 
-submitFormComponent.form()  // {{ JSON.stringify(submitFormComponent.form()) }}
-toggleFavorite.form(1)      // {{ JSON.stringify(toggleFavorite.form(1)) }}</pre
-                            >
-                        </div>
+                                submitFormComponent.form()  // ${JSON.stringify(submitFormComponent.form())}
+                                toggleFavorite.form(1)      // ${JSON.stringify(toggleFavorite.form(1))}
+                            `'
+                        />
                     </div>
 
                     <div class="grid gap-6 lg:grid-cols-2">
                         <FeatureCard title="v-bind with .form()">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-&lt;Form v-bind="submitFormComponent.form()"&gt;</pre
-                                >
-                            </div>
+                            <CodeBlock
+                                :code='`<Form v-bind="submitFormComponent.form()">`'
+                            />
 
                             <Form
                                 v-bind="submitFormComponent.form()"
@@ -648,23 +609,19 @@ toggleFavorite.form(1)      // {{ JSON.stringify(toggleFavorite.form(1)) }}</pre
                         </FeatureCard>
 
                         <FeatureCard title="With route parameters">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-// Positional
-toggleFavorite.form(1)
-// {{ JSON.stringify(toggleFavorite.form(1)) }}
+                            <CodeBlock :code='`
+                                // Positional
+                                toggleFavorite.form(1)
+                                // ${JSON.stringify(toggleFavorite.form(1))}
 
-// Named
-toggleFavorite.form({ contact: 1 })
-// {{ JSON.stringify(toggleFavorite.form({ contact: 1 })) }}
+                                // Named
+                                toggleFavorite.form({ contact: 1 })
+                                // ${JSON.stringify(toggleFavorite.form({ contact: 1 }))}
 
-// Model object
-toggleFavorite.form({ id: 1 })
-// {{ JSON.stringify(toggleFavorite.form({ id: 1 })) }}</pre
-                                >
-                            </div>
+                                // Model object
+                                toggleFavorite.form({ id: 1 })
+                                // ${JSON.stringify(toggleFavorite.form({ id: 1 }))}
+                            `' />
                         </FeatureCard>
                     </div>
                 </div>
@@ -687,17 +644,13 @@ toggleFavorite.form({ id: 1 })
                             title="query"
                             description="Sets query parameters on the generated URL."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-contacts.index({ query: { search: 'Jane', page: 2 } })
-// {{ JSON.stringify(contacts.index({ query: { search: 'Jane', page: 2 } })) }}
+                            <CodeBlock :code='`
+                                contacts.index({ query: { search: \x27Jane\x27, page: 2 } })
+                                // ${JSON.stringify(contacts.index({ query: { search: "Jane", page: 2 } }))}
 
-toggleFavorite(1, { query: { notify: true } })
-// {{ JSON.stringify(toggleFavorite(1, { query: { notify: true } })) }}</pre
-                                >
-                            </div>
+                                toggleFavorite(1, { query: { notify: true } })
+                                // ${JSON.stringify(toggleFavorite(1, { query: { notify: true } }))}
+                            `' />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button variant="outline" size="sm" as-child>
@@ -729,19 +682,15 @@ toggleFavorite(1, { query: { notify: true } })
                             title="mergeQuery"
                             description="Merges with current URL params. Pass null to remove a param."
                         >
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-// Adds page=2 to current URL params
-contacts.index({ mergeQuery: { page: 2 } })
-// {{ JSON.stringify(contacts.index({ mergeQuery: { page: 2 } })) }}
+                            <CodeBlock :code='`
+                                // Adds page=2 to current URL params
+                                contacts.index({ mergeQuery: { page: 2 } })
+                                // ${JSON.stringify(contacts.index({ mergeQuery: { page: 2 } }))}
 
-// Removes sort from current URL params
-contacts.index({ mergeQuery: { sort: null } })
-// {{ JSON.stringify(contacts.index({ mergeQuery: { sort: null } })) }}</pre
-                                >
-                            </div>
+                                // Removes sort from current URL params
+                                contacts.index({ mergeQuery: { sort: null } })
+                                // ${JSON.stringify(contacts.index({ mergeQuery: { sort: null } }))}
+                            `' />
 
                             <div class="mt-3 flex flex-wrap gap-2">
                                 <Button
@@ -807,22 +756,18 @@ contacts.index({ mergeQuery: { sort: null } })
                                 >
                                 and pass a Wayfinder route directly.
                             </template>
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-const form = useForm({
-    username: '', email: '', ...
-}).withPrecognition(storeAccount())
+                            <CodeBlock :code='`
+                                const form = useForm({
+                                    username: \x27\x27, email: \x27\x27, ...
+                                }).withPrecognition(storeAccount())
 
-// Validate on field change
-@change="form.validate('username')"
+                                // Validate on field change
+                                @change="form.validate(\x27username\x27)"
 
-// Check field status
-form.valid('username')
-form.invalid('username')</pre
-                                >
-                            </div>
+                                // Check field status
+                                form.valid(\x27username\x27)
+                                form.invalid(\x27username\x27)
+                            `' />
 
                             <form
                                 class="mt-3 space-y-3"
@@ -968,15 +913,13 @@ form.invalid('username')</pre
                                 >
                                 to enable it.
                             </template>
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <pre>
-&lt;Form v-bind="storeAccount.form()"
-      :validation-timeout="500"
-      #default="{ validate, valid, invalid }"&gt;</pre
-                                >
-                            </div>
+                            <CodeBlock
+                                :code='`
+                                    <Form v-bind="storeAccount.form()"
+                                          :validation-timeout="500"
+                                          #default="{ validate, valid, invalid }">
+                                `'
+                            />
 
                             <Form
                                 v-bind="storeAccount.form()"

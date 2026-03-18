@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import AppLayout from '@/layouts/AppLayout.vue';
@@ -34,18 +35,16 @@ const breadcrumbs: BreadcrumbItem[] = [
                     description="Pass an array of layouts to nest them from outermost to innermost."
                 >
                     <div class="space-y-3">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <pre>
-import AppLayout from './AppLayout.vue'
-import SectionLayout from './SectionLayout.vue'
+                        <CodeBlock
+                            :code='`
+                                import AppLayout from "./AppLayout.vue"
+                                import SectionLayout from "./SectionLayout.vue"
 
-defineOptions({
-  layout: [AppLayout, SectionLayout],
-})</pre
-                            >
-                        </div>
+                                defineOptions({
+                                  layout: [AppLayout, SectionLayout],
+                                })
+                            `'
+                        />
                         <p class="text-xs text-muted-foreground">
                             This renders as:
                             <code
@@ -103,35 +102,35 @@ defineOptions({
                     description="How this demo app uses layouts."
                 >
                     <div class="grid gap-4 sm:grid-cols-2">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Standard pages:</p>
-                            <pre class="mt-1">
-&lt;AppLayout :breadcrumbs="..."&gt;
-  &lt;!-- page content --&gt;
-&lt;/AppLayout&gt;</pre
-                            >
-                            <p class="mt-2 text-muted-foreground">
+                        <div>
+                            <CodeBlock
+                                title="Standard pages:"
+                                :code='`
+                                    <AppLayout :breadcrumbs="...">
+                                      <!-- page content -->
+                                    </AppLayout>
+                                `'
+                            />
+                            <p class="mt-2 text-xs text-muted-foreground">
                                 Single layout wrapping page content directly in
                                 the template.
                             </p>
                         </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Persistent nested:</p>
-                            <pre class="mt-1">
-defineOptions({
-  layout: [AppLayout, SectionLayout],
-})
+                        <div>
+                            <CodeBlock
+                                title="Persistent nested:"
+                                :code='`
+                                    defineOptions({
+                                      layout: [AppLayout, SectionLayout],
+                                    })
 
-// Template has no layout wrapper
-&lt;template&gt;
-  &lt;!-- content only --&gt;
-&lt;/template&gt;</pre
-                            >
-                            <p class="mt-2 text-muted-foreground">
+                                    // Template has no layout wrapper
+                                    <template>
+                                      <!-- content only -->
+                                    </template>
+                                `'
+                            />
+                            <p class="mt-2 text-xs text-muted-foreground">
                                 The template has no layout wrapper. Inertia
                                 manages both layouts externally.
                             </p>

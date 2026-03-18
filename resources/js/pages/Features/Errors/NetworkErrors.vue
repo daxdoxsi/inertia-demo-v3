@@ -1,4 +1,5 @@
 <script setup lang="ts">
+import CodeBlock from '@/components/CodeBlock.vue';
 import { Head, router } from '@inertiajs/vue3';
 import { ref, onUnmounted } from 'vue';
 import FeatureCard from '@/components/FeatureCard.vue';
@@ -161,30 +162,22 @@ onUnmounted(() => {
                     title="API Reference"
                 >
                     <div class="grid gap-3 sm:grid-cols-2">
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Per-visit callback:</p>
-                            <pre class="mt-1">
-router.get('/url', {}, {
+                        <CodeBlock
+                            title="Per-visit callback:"
+                            code="router.get('/url', {}, {
   onNetworkError: (error) => {
     // Return false to prevent default
     return false
   },
-})</pre
-                            >
-                        </div>
-                        <div
-                            class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >
-                            <p class="font-semibold">Global event:</p>
-                            <pre class="mt-1">
-router.on('networkError', (event) => {
+})"
+                        />
+                        <CodeBlock
+                            title="Global event:"
+                            code="router.on('networkError', (event) => {
   console.log(event.detail.exception)
   event.preventDefault()
-})</pre
-                            >
-                        </div>
+})"
+                        />
                     </div>
                 </FeatureCard>
             </div>

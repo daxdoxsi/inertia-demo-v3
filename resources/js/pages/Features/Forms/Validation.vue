@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { Head, useForm } from '@inertiajs/vue3';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import InputError from '@/components/InputError.vue';
@@ -128,12 +129,7 @@ function submitSecondary() {
                     <!-- Error display -->
                     <div v-if="primaryForm.hasErrors" class="mt-4 space-y-2">
                         <h4 class="text-sm font-semibold">form.errors</h4>
-                        <pre
-                            class="overflow-auto rounded-md bg-destructive/10 p-3 text-xs text-destructive"
-                            >{{
-                                JSON.stringify(primaryForm.errors, null, 2)
-                            }}</pre
-                        >
+                        <CodeBlock :code="JSON.stringify(primaryForm.errors, null, 2)" />
                     </div>
                 </FeatureCard>
 
@@ -200,12 +196,7 @@ function submitSecondary() {
                         <h4 class="text-sm font-semibold">
                             secondaryForm.errors
                         </h4>
-                        <pre
-                            class="overflow-auto rounded-md bg-destructive/10 p-3 text-xs text-destructive"
-                            >{{
-                                JSON.stringify(secondaryForm.errors, null, 2)
-                            }}</pre
-                        >
+                        <CodeBlock :code="JSON.stringify(secondaryForm.errors, null, 2)" />
                     </div>
                 </FeatureCard>
 

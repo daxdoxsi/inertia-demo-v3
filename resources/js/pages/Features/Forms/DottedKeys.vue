@@ -2,6 +2,7 @@
 import { Form, Head, usePage } from '@inertiajs/vue3';
 import { Plus, X } from 'lucide-vue-next';
 import { ref, computed } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import InputError from '@/components/InputError.vue';
@@ -188,11 +189,10 @@ const parsedData = computed(
                         title="Parsed Request Data"
                         description="The server echoes back the parsed data structure via flash."
                     >
-                        <pre
+                        <CodeBlock
                             v-if="parsedData"
-                            class="overflow-auto rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >{{ JSON.stringify(parsedData, null, 2) }}</pre
-                        >
+                            :code="JSON.stringify(parsedData, null, 2)"
+                        />
                         <p v-else class="text-sm text-muted-foreground">
                             Submit the form to see the parsed data structure.
                         </p>
@@ -200,35 +200,29 @@ const parsedData = computed(
 
                     <FeatureCard info-card title="How It Works">
                         <div class="space-y-3 text-sm text-muted-foreground">
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <p class="font-semibold">Nested Objects</p>
-                                <pre class="mt-1">
-&lt;input name="user.name" /&gt;
-&lt;input name="user.email" /&gt;
-// Submits: {{ '{ user: { name: ..., email: ... } }' }}</pre
-                                >
-                            </div>
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <p class="font-semibold">Array Fields</p>
-                                <pre class="mt-1">
-&lt;input name="tags[]" /&gt;
-&lt;input name="tags[]" /&gt;
-// Submits: {{ '{ tags: ["a", "b"] }' }}</pre
-                                >
-                            </div>
-                            <div
-                                class="rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                            >
-                                <p class="font-semibold">Escaped Dots</p>
-                                <pre class="mt-1">
-&lt;input name="config\.version" /&gt;
-// Submits: {{ '{ "config.version": "1.0" }' }}</pre
-                                >
-                            </div>
+                            <CodeBlock
+                                title="Nested Objects"
+                                :code='`
+                                    <input name="user.name" />
+                                    <input name="user.email" />
+                                    // Submits: { user: { name: ..., email: ... } }
+                                `'
+                            />
+                            <CodeBlock
+                                title="Array Fields"
+                                :code='`
+                                    <input name="tags[]" />
+                                    <input name="tags[]" />
+                                    // Submits: { tags: ["a", "b"] }
+                                `'
+                            />
+                            <CodeBlock
+                                title="Escaped Dots"
+                                :code='`
+                                    <input name="config\\.version" />
+                                    // Submits: { "config.version": "1.0" }
+                                `'
+                            />
                         </div>
                     </FeatureCard>
                 </div>

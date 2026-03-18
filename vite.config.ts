@@ -4,7 +4,9 @@ import vue from '@vitejs/plugin-vue';
 import laravel from 'laravel-vite-plugin';
 import { defineConfig } from 'vite';
 
-export default defineConfig({
+export default defineConfig(({ command }) => ({
+    // Expose the project root to the client so SourceLinks can open files in VSCode during development
+    define: command === 'serve' ? { __PROJECT_ROOT__: JSON.stringify(process.cwd()) } : {},
     build: {
         minify: false,
     },
@@ -24,4 +26,4 @@ export default defineConfig({
             },
         }),
     ],
-});
+}));

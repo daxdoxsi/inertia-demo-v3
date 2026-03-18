@@ -1,6 +1,7 @@
 <script setup lang="ts">
 import { Head, useHttp } from '@inertiajs/vue3';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Badge } from '@/components/ui/badge';
@@ -159,11 +160,10 @@ function cancelRequest() {
                     title="Response"
                     description="The JSON response from the API endpoint."
                 >
-                    <pre
+                    <CodeBlock
                         v-if="response"
-                        class="overflow-auto rounded-lg border border-black/5 bg-neutral-50/80 p-3 font-mono text-xs dark:border-white/5 dark:bg-neutral-900/80"
-                        >{{ JSON.stringify(response, null, 2) }}</pre
-                    >
+                        :code="JSON.stringify(response, null, 2)"
+                    />
                     <p v-else class="text-xs text-muted-foreground">
                         Send a request to see the response.
                     </p>

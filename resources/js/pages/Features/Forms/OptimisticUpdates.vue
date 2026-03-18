@@ -2,6 +2,7 @@
 import { Form, Head, router, useForm } from '@inertiajs/vue3';
 import { Heart } from 'lucide-vue-next';
 import { ref } from 'vue';
+import CodeBlock from '@/components/CodeBlock.vue';
 import FeatureCard from '@/components/FeatureCard.vue';
 import FeatureHeader from '@/components/FeatureHeader.vue';
 import { Button } from '@/components/ui/button';
@@ -299,12 +300,12 @@ function toggleFavoriteUseForm(contact: {
                                         : 'bg-muted'
                                 "
                             >
-                                <p class="font-semibold">router.optimistic()</p>
-                                <pre class="mt-1 text-muted-foreground">
-router.optimistic((props) => ({
+                                <CodeBlock
+                                    title="router.optimistic()"
+                                    code="router.optimistic((props) => ({
   contacts: /* updated */
-})).post(url, data)</pre
-                                >
+})).post(url, data)"
+                                />
                             </div>
                             <div
                                 class="rounded-md p-3 text-xs"
@@ -314,14 +315,12 @@ router.optimistic((props) => ({
                                         : 'bg-muted'
                                 "
                             >
-                                <p class="font-semibold">
-                                    useForm.optimistic()
-                                </p>
-                                <pre class="mt-1 text-muted-foreground">
-form.optimistic((props) => ({
+                                <CodeBlock
+                                    title="useForm.optimistic()"
+                                    code="form.optimistic((props) => ({
   contacts: /* updated */
-})).post(url)</pre
-                                >
+})).post(url)"
+                                />
                             </div>
                             <div
                                 class="rounded-md p-3 text-xs"
@@ -331,14 +330,12 @@ form.optimistic((props) => ({
                                         : 'bg-muted'
                                 "
                             >
-                                <p class="font-semibold">
-                                    &lt;Form :optimistic&gt;
-                                </p>
-                                <pre class="mt-1 text-muted-foreground">
-&lt;Form :optimistic="(props, data) => ({
+                                <CodeBlock
+                                    title="<Form :optimistic>"
+                                    :code='`<Form :optimistic="(props, data) => ({
   contacts: /* updated */
-})" /&gt;</pre
-                                >
+})" />`'
+                                />
                             </div>
                         </div>
                     </FeatureCard>
