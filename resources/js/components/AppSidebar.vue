@@ -272,7 +272,7 @@ const featuresSection: NavSectionType = {
 const footerNavItems: NavItem[] = [
     {
         title: 'Documentation',
-        href: 'https://inertiajs.com',
+        href: 'https://inertiajs.com/docs/v3/getting-started',
         icon: BookOpen,
     },
 ];
