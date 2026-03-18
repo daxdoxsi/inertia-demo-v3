@@ -76,7 +76,7 @@ function toggleFavoriteFilter() {
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
             <!-- Header -->
             <div class="flex items-center justify-between">
-                <h1 class="text-2xl font-bold">Contacts</h1>
+                <h1 class="text-2xl font-semibold tracking-tight">Contacts</h1>
                 <Button as-child>
                     <Link :href="contactRoutes.create().url">
                         <Plus class="size-4" />
@@ -123,10 +123,10 @@ function toggleFavoriteFilter() {
                     :key="contact.id"
                     :href="contactRoutes.show(contact.id).url"
                     prefetch="hover"
-                    class="flex items-center gap-4 rounded-xl bg-muted/30 p-4 transition-colors hover:bg-muted/50"
+                    class="flex items-center gap-4 rounded-lg bg-muted/30 p-4 hover:bg-muted/50"
                 >
                     <div
-                        class="flex size-10 items-center justify-center rounded-full bg-primary/10 text-sm font-medium text-primary"
+                        class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10 text-sm font-medium text-primary"
                     >
                         {{ contact.first_name[0] }}{{ contact.last_name[0] }}
                     </div>
@@ -138,7 +138,7 @@ function toggleFavoriteFilter() {
                             >
                             <Heart
                                 v-if="contact.is_favorite"
-                                class="size-3 fill-red-500 text-red-500"
+                                class="size-3 shrink-0 fill-red-500 text-red-500"
                             />
                         </div>
                         <div class="truncate text-sm text-muted-foreground">

@@ -1,6 +1,5 @@
 <script setup lang="ts">
 import { Deferred, Head, Link, usePoll } from '@inertiajs/vue3';
-import { ContactRound, Building2, FileText } from 'lucide-vue-next';
 import {
     Card,
     CardContent,
@@ -41,20 +40,17 @@ usePoll(30000, { only: ['recentActivity'] });
             <!-- Stats Cards -->
             <div class="grid gap-4 md:grid-cols-3">
                 <Card>
-                    <CardHeader
-                        class="flex flex-row items-center justify-between pb-2"
-                    >
+                    <CardHeader>
                         <CardTitle class="text-sm font-medium"
                             >Total Contacts</CardTitle
                         >
-                        <ContactRound class="size-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                         <Deferred data="totalContacts">
                             <template #fallback>
                                 <Skeleton class="h-9 w-20" />
                             </template>
-                            <div class="text-3xl font-bold tracking-tight">
+                            <div class="text-3xl font-semibold tracking-tight">
                                 {{ totalContacts }}
                             </div>
                         </Deferred>
@@ -62,20 +58,17 @@ usePoll(30000, { only: ['recentActivity'] });
                 </Card>
 
                 <Card>
-                    <CardHeader
-                        class="flex flex-row items-center justify-between pb-2"
-                    >
+                    <CardHeader>
                         <CardTitle class="text-sm font-medium"
                             >Organizations</CardTitle
                         >
-                        <Building2 class="size-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                         <Deferred data="totalOrganizations">
                             <template #fallback>
                                 <Skeleton class="h-9 w-20" />
                             </template>
-                            <div class="text-3xl font-bold tracking-tight">
+                            <div class="text-3xl font-semibold tracking-tight">
                                 {{ totalOrganizations }}
                             </div>
                         </Deferred>
@@ -83,20 +76,17 @@ usePoll(30000, { only: ['recentActivity'] });
                 </Card>
 
                 <Card>
-                    <CardHeader
-                        class="flex flex-row items-center justify-between pb-2"
-                    >
+                    <CardHeader>
                         <CardTitle class="text-sm font-medium"
                             >Notes This Week</CardTitle
                         >
-                        <FileText class="size-4 text-muted-foreground" />
                     </CardHeader>
                     <CardContent>
                         <Deferred data="recentNotesCount">
                             <template #fallback>
                                 <Skeleton class="h-9 w-20" />
                             </template>
-                            <div class="text-3xl font-bold tracking-tight">
+                            <div class="text-3xl font-semibold tracking-tight">
                                 {{ recentNotesCount }}
                             </div>
                         </Deferred>
@@ -123,7 +113,7 @@ usePoll(30000, { only: ['recentActivity'] });
                         <div
                             v-for="note in recentActivity"
                             :key="note.id"
-                            class="flex items-start gap-4 rounded-lg bg-muted/30 px-4 py-3 transition-colors hover:bg-muted/50"
+                            class="flex items-start gap-4 rounded-lg bg-muted/30 px-4 py-3"
                         >
                             <div class="flex-1 space-y-1">
                                 <div class="flex items-center gap-2">

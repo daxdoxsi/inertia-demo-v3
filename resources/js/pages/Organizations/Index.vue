@@ -50,7 +50,7 @@ watch(search, (value) => {
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
-            <h1 class="text-2xl font-bold">Organizations</h1>
+            <h1 class="text-2xl font-semibold tracking-tight">Organizations</h1>
 
             <!-- Search -->
             <div class="relative max-w-sm">
@@ -70,12 +70,12 @@ watch(search, (value) => {
                     v-for="org in props.organizations.data"
                     :key="org.id"
                     :href="organizationRoutes.show(org.id).url"
-                    class="flex items-center gap-4 rounded-xl bg-muted/30 p-4 transition-colors hover:bg-muted/50"
+                    class="flex items-center gap-4 rounded-lg bg-muted/30 p-4 hover:bg-muted/50"
                 >
                     <div
-                        class="flex size-10 items-center justify-center rounded-full bg-primary/10"
+                        class="flex size-10 shrink-0 items-center justify-center rounded-full bg-primary/10"
                     >
-                        <Building2 class="size-5 text-primary" />
+                        <Building2 class="size-5 shrink-0 text-primary" />
                     </div>
                     <div class="flex-1">
                         <span class="font-medium">{{ org.name }}</span>
@@ -106,7 +106,7 @@ watch(search, (value) => {
                     <Link
                         v-if="link.url"
                         :href="link.url"
-                        class="rounded-md px-3 py-1 text-sm transition-colors hover:bg-accent"
+                        class="rounded-md px-3 py-1 text-sm hover:bg-accent"
                         :class="{
                             'bg-primary text-primary-foreground hover:bg-primary/90':
                                 link.active,

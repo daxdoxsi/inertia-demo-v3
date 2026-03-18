@@ -60,21 +60,22 @@ function deleteContact() {
             <div class="flex items-start justify-between">
                 <div class="flex items-center gap-4">
                     <div
-                        class="flex size-16 items-center justify-center rounded-full bg-primary/10 text-xl font-semibold text-primary"
+                        class="flex size-16 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xl font-semibold text-primary"
                     >
                         {{ contact.first_name[0] }}{{ contact.last_name[0] }}
                     </div>
                     <div>
                         <div class="flex items-center gap-2">
-                            <h1 class="text-2xl font-bold">
+                            <h1 class="text-2xl font-semibold tracking-tight">
                                 {{ contact.first_name }} {{ contact.last_name }}
                             </h1>
                             <button
+                                type="button"
                                 @click="toggleFavorite"
-                                class="focus:outline-none"
+                                class="focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-ring"
                             >
                                 <Heart
-                                    class="size-5 transition-colors"
+                                    class="size-5 shrink-0"
                                     :class="
                                         contact.is_favorite
                                             ? 'fill-red-500 text-red-500'
@@ -88,7 +89,7 @@ function deleteContact() {
                             variant="secondary"
                             class="mt-1"
                         >
-                            <Building2 class="size-3" />
+                            <Building2 class="size-3 shrink-0" />
                             {{ contact.organization.name }}
                         </Badge>
                     </div>
@@ -100,7 +101,7 @@ function deleteContact() {
                             Edit
                         </Link>
                     </Button>
-                    <Button variant="destructive" @click="deleteContact">
+                    <Button variant="outline" class="text-destructive" @click="deleteContact">
                         <Trash2 class="size-4" />
                         Delete
                     </Button>
@@ -118,7 +119,7 @@ function deleteContact() {
                             v-if="contact.email"
                             class="flex items-center gap-2 text-sm"
                         >
-                            <Mail class="size-4 text-muted-foreground" />
+                            <Mail class="size-4 shrink-0 text-muted-foreground" />
                             <a
                                 :href="`mailto:${contact.email}`"
                                 class="text-primary hover:underline"
@@ -129,7 +130,7 @@ function deleteContact() {
                             v-if="contact.phone"
                             class="flex items-center gap-2 text-sm"
                         >
-                            <Phone class="size-4 text-muted-foreground" />
+                            <Phone class="size-4 shrink-0 text-muted-foreground" />
                             <span>{{ contact.phone }}</span>
                         </div>
                         <div
@@ -197,7 +198,7 @@ function deleteContact() {
                                 <div
                                     v-for="note in notes"
                                     :key="note.id"
-                                    class="rounded-xl bg-muted/30 p-3"
+                                    class="rounded-lg bg-muted/30 p-3"
                                 >
                                     <div
                                         class="mb-1 flex items-center justify-between"

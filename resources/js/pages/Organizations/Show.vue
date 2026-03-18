@@ -42,12 +42,12 @@ const breadcrumbs: BreadcrumbItem[] = [
                 <CardHeader>
                     <div class="flex items-center gap-3">
                         <div
-                            class="flex size-12 items-center justify-center rounded-full bg-primary/10"
+                            class="flex size-12 shrink-0 items-center justify-center rounded-full bg-primary/10"
                         >
-                            <Building2 class="size-6 text-primary" />
+                            <Building2 class="size-6 shrink-0 text-primary" />
                         </div>
                         <div>
-                            <CardTitle class="text-2xl">{{
+                            <CardTitle class="text-2xl tracking-tight">{{
                                 organization.name
                             }}</CardTitle>
                             <Badge variant="outline" class="mt-1">
@@ -123,10 +123,10 @@ const breadcrumbs: BreadcrumbItem[] = [
                             v-for="contact in props.contacts.data"
                             :key="contact.id"
                             :href="contactRoutes.show(contact.id).url"
-                            class="flex items-center gap-3 rounded-xl bg-muted/30 p-3 transition-colors hover:bg-muted/50"
+                            class="flex items-center gap-3 rounded-lg bg-muted/30 p-3 hover:bg-muted/50"
                         >
                             <div
-                                class="flex size-8 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary"
+                                class="flex size-8 shrink-0 items-center justify-center rounded-full bg-primary/10 text-xs font-medium text-primary"
                             >
                                 {{ contact.first_name[0]
                                 }}{{ contact.last_name[0] }}

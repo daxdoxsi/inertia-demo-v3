@@ -24,7 +24,7 @@ const breadcrumbs: BreadcrumbItem[] = [
 
     <AppLayout :breadcrumbs="breadcrumbs">
         <div class="flex h-full flex-1 flex-col gap-4 p-4">
-            <h1 class="text-2xl font-bold">Create Contact</h1>
+            <h1 class="text-2xl font-semibold tracking-tight">Create Contact</h1>
 
             <Card class="max-w-2xl">
                 <CardHeader>
@@ -68,7 +68,7 @@ const breadcrumbs: BreadcrumbItem[] = [
                             <select
                                 id="organization_id"
                                 name="organization_id"
-                                class="flex h-9 w-full rounded-md border border-input/60 bg-background px-3 py-1 text-sm transition-colors placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
+                                class="flex h-9 w-full rounded-md border border-input/60 bg-background px-3 py-1 text-sm placeholder:text-muted-foreground focus-visible:ring-1 focus-visible:ring-ring focus-visible:outline-none"
                             >
                                 <option value="">None</option>
                                 <option
