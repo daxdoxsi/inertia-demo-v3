@@ -30,7 +30,6 @@
             }
         </style>
 
-        <title data-inertia>{{ config('app.name', 'Laravel') }}</title>
 
         <link rel="icon" href="/favicon.ico" sizes="any">
         <link rel="apple-touch-icon" href="/apple-touch-icon.png">
@@ -48,9 +47,12 @@
         <meta name="twitter:image" content="{{ url('/images/og-image.png') }}">
 
         @vite(['resources/js/app.ts', "resources/js/pages/{$page['component']}.vue"])
-        @inertiaHead
+
+        <x-inertia::head>
+            <title>{{ config('app.name', 'Laravel') }}</title>
+        </x-inertia::head>
     </head>
     <body class="font-sans antialiased">
-        @inertia
+        <x-inertia::app />
     </body>
 </html>
