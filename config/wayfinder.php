@@ -16,6 +16,7 @@ return [
         'models' => env('WAYFINDER_GENERATE_MODELS', true),
         'inertia' => [
             'shared_data' => env('WAYFINDER_GENERATE_INERTIA_SHARED_DATA', true),
+            'component' => true,
         ],
         'broadcast' => [
             'channels' => env('WAYFINDER_GENERATE_BROADCAST_CHANNELS', true),
