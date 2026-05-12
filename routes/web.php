@@ -9,7 +9,7 @@ Route::redirect('/', '/login')->name('home');
 
 Route::middleware(['auth', 'verified'])->group(function () {
     Route::get('dashboard', Crm\DashboardController::class)->name('dashboard');
-    Route::get('user/show', [UserController::class,'show'])->name('user.show');
+    Route::get('user/show', [UserController::class, 'show'])->name('user.show');
 
     // CRM Routes
     Route::resource('contacts', Crm\ContactController::class);
